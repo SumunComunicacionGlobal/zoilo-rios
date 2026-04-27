@@ -1,0 +1,30 @@
+@use '../abstracts/mixins' as *;
+
+#hero {
+    &.wp-block-cover {
+        height: 60rem;
+    }
+
+    .blog &, .archive &, .search & {
+        height: 40rem;
+    } 
+
+    #box-hero {
+        position: relative;
+        
+        &::before {
+            content: url("./assets/images/symbol-box-hero.png");
+            position: absolute;
+            background-repeat: no-repeat;
+            top: 2rem;
+            left: -3rem;
+            width: 121px;
+            height: 92px;
+
+            @media ($below-mobile) {
+                left: -1.5rem;
+            }
+        }
+    }
+}
+

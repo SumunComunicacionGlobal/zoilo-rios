@@ -1,0 +1,11 @@
+@use '../abstracts/mixins' as *;
+
+#colophon {
+
+    .box-menu-footer {
+
+        @media ($below-mobile) {
+            padding: 1rem !important;
+        }
+    }
+}

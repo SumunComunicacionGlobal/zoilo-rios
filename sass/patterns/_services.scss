@@ -1,0 +1,31 @@
+@use '../abstracts/mixins' as *;
+
+#cta-form {
+    @media ($below-tablet) {
+        
+        .wp-block-columns {
+            flex-direction: column;
+        }
+        .column-imgs  {
+            order: 3;
+
+            .wp-block-group {
+                display: flex;
+                gap: var(--wp--custom--layout--gap);
+
+                img {
+                    object-fit: cover;
+                    aspect-ratio: 3/4;
+                    width: 100%;
+                }
+
+                .wp-block-image {
+                    width: 100%;
+                    margin: 0;
+                }
+            }
+            
+        }
+    }
+}
+    

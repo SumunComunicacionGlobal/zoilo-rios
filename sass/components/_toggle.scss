@@ -1,0 +1,130 @@
+.toggle {
+    display: flex;
+    position: relative;
+    max-width: 22rem;
+    height: 3rem;
+    padding: 0.25rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    border-radius: var(--wp--custom--border-radius--rounded);
+    border: 1px solid var(--wp--preset--color--neutral-30);
+    background: var(--wp--preset--color--neutral-white);
+
+    .toggle-btn {
+        display: flex;
+        padding: 0.5rem 2rem 0.5rem 1.5rem;
+        justify-content: center;
+        align-items: center;
+        gap: 0.25rem;
+        flex: 1 0 0;
+        z-index: 1;
+        border: 0;
+        background-color: transparent;
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+            color: var(--wp--preset--color--foreground);
+        }
+    }
+
+    .toggle-btn--slider {
+        position: absolute;
+        height: calc(100% - 0.5rem);
+        width: 50%;
+        background-color: var(--wp--preset--color--neutral-30);
+        border-radius: var(--wp--custom--border-radius--rounded);
+        left: 0.25rem;
+        transition: left 0.3s ease;
+        &.active  {
+            left: calc(50% - 0.25rem);
+        }
+    }
+}
+
+// Estaciones - Controles
+.row-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+    position: sticky;
+    z-index: 10;
+
+    .btn-filtros {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        background-color: var(--wp--preset--color--primary);
+        color: white;
+        border: none;
+        border-radius: var(--wp--custom--border-radius--rounded);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        &:hover {
+            background-color: var(--wp--preset--color--primary-dark, #c53d24);
+        }
+    }
+
+    .toggle-views {
+        display: flex;
+        position: relative;
+        height: 3rem;
+        padding: 0.25rem;
+        align-items: center;
+        justify-content: center;
+        gap: 0.25rem;
+        border-radius: var(--wp--custom--border-radius--rounded);
+        border: 1px solid var(--wp--preset--color--neutral-30);
+        background: var(--wp--preset--color--neutral-white);
+
+        .toggle-btn {
+            display: flex;
+            padding: 0.5rem 1rem;
+            justify-content: center;
+            align-items: center;
+            gap: 0.25rem;
+            flex: 1 0 0;
+            z-index: 1;
+            cursor: pointer;
+
+            svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        .toggle-btn--slider {
+            position: absolute;
+            height: calc(100% - 0.5rem);
+            width: calc(33.333% - 0.167rem);
+            background-color: var(--wp--preset--color--neutral-30);
+            border-radius: var(--wp--custom--border-radius--rounded);
+            left: 0.25rem;
+            transition: left 0.3s ease;
+        }
+
+        // Estados activos para 3 opciones
+        &[data-active="list"] .toggle-btn--slider {
+            left: 0.25rem;
+        }
+
+        &[data-active="map"] .toggle-btn--slider {
+            left: calc(33.333% + 0.08rem);
+        }
+
+        &[data-active="grid"] .toggle-btn--slider {
+            left: calc(66.666% - 0.08rem);
+        }
+    }
+}

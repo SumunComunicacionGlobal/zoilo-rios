@@ -1,0 +1,15 @@
+.tag {
+    display: flex;
+    height: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+
+    padding: var(--spacing-025, 0.25rem) var(--spacing-05, 0.5rem);
+
+    color: var(--wp--preset--color--foreground-medium);
+    font-size: var(--wp--preset--font-size--caption);
+
+    border-radius: var(--wp--custom--border-radius--rounded);
+    border: 1px solid var(--wp--preset--color--foreground-medium);
+}

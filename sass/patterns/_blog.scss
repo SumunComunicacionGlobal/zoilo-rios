@@ -1,0 +1,70 @@
+@use '../abstracts/mixins' as *;
+
+.blog .entry-content article, .archive .entry-content article {
+    //max-width: 1120px;
+}
+
+#filter-by {
+
+    .toggle-filter-by {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .wp-block-categories-list {
+        list-style: none;
+        display: flex;
+        gap: var(--wp--custom--layout--gap);
+        margin: 0;
+        padding: 0;
+
+        @media ($below-tablet) {
+            flex-direction: column;
+            flex-basis: 100%;
+            gap: 1rem;
+            max-height: 50dvh;
+            opacity: 1;
+            transition: .5s ease-in-out;
+        }
+
+        a {
+            text-decoration: none;
+            border-radius: var(--wp--custom--border-radius--rounded);
+            border: 1px solid;
+            padding: .125rem 1rem;
+            color: var(--wp--preset--color--foreground-medium);
+            transition: transform 0.3s ease;
+
+            &:after {
+                content: none;
+            }
+
+            &:hover {
+                transform: scale(1.1);
+                color: var(--wp--preset--color--foreground-inverted);
+                background-color: var(--wp--preset--color--foreground-medium);
+            }
+        }
+    }
+
+    @media ($below-tablet) {
+
+        .filter-by-content {
+            max-height: 0;
+            transition: .5s ease-in-out;
+            visibility: hidden;
+        }
+
+        &.filter-by--is-open  {
+            .filter-by-content {
+                max-height: 50dvh;
+                visibility: visible;
+                transition: .5s ease-in-out;
+                margin-bottom: var(--wp--preset--spacing--40);
+            }
+            
+        }
+    }
+}
+
