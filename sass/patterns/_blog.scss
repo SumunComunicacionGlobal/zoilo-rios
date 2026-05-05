@@ -1,6 +1,6 @@
 @use '../abstracts/mixins' as *;
 
-.single .entry-content {
+.single-post .entry-content {
     
     & > :where(:not(.alignleft):not(.alignright):not(.alignfull)){
         max-width: 960px;
