@@ -49,11 +49,11 @@ function petrolera_shortcode($atts) {
     // Mostrar icono
     $icon_path = get_template_directory() . '/assets/icons/' . $petrolera_value . '.svg';
     if (file_exists($icon_path)) {
-        $output .= file_get_contents($icon_path);
+        $output .= '<div class="petrolera-icon">' . file_get_contents($icon_path) . '</div>';
     }
 
     // Mostrar etiqueta
-    $output .= '<span>' . esc_html($petrolera_label) . '</span>';
+    $output .= '<strong class="has-big-font-size">' . esc_html($petrolera_label) . '</strong>';
     $output .= '</div>';
 
     return $output;
