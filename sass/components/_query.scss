@@ -84,6 +84,10 @@
                 .wp-block-cover {
                     background-color: var(--wp--preset--color--secondary) !important;
                 }
+                .wp-block-post-featured-image,
+                .safe-svg-inside {
+                    display: none;
+                }
                 .wp-block-post-featured-image {
                     margin-left: auto;
                 }
