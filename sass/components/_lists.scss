@@ -88,7 +88,9 @@ ul.is-style-arrow-mini-separator-list {
 ul.is-style-check-separator-list,
 ul.is-style-check-list {
 
-	padding: 0 0 var(--wp--preset--spacing--10) var(--wp--preset--spacing--30);
+	li {
+		padding: 0 0 var(--wp--preset--spacing--10) var(--wp--preset--spacing--30);
+	}
 
 	li:before{
 		content: url("assets/icons/check.svg");
