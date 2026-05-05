@@ -21,7 +21,7 @@
 
         .rank-math-question {
             position: relative;
-            width: calc(100% - 1.5rem);
+            width: calc(100% - 3rem);
             margin-bottom: 1rem;
             
             &::before {
@@ -51,7 +51,7 @@
             
             &::after {
                 content: url(./assets/icons/arrow-faqs.svg);
-                right: -1.5rem;
+                right: -3rem;
                 top: 0;
                 margin-left: 1rem;
                 position: absolute;

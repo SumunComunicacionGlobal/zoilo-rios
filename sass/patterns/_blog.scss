@@ -1,21 +1,60 @@
 @use '../abstracts/mixins' as *;
 
-.blog .entry-content article, .archive .entry-content article {
-    //max-width: 1120px;
+.single-post .entry-content {
+    
+    & > :where(:not(.alignleft):not(.alignright):not(.alignfull)){
+        max-width: 960px;
+    }
 }
 
 #filter-by {
 
-    .toggle-filter-by {
-        &:hover {
-            cursor: pointer;
+    & > div.wp-block-group {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--wp--custom--layout--gap);
+
+        @media ($below-tablet) { 
+            grid-template-columns: 1fr;
         }
     }
+
+    &.filter-by--is-open {
+        
+        @media ($below-tablet) {
+            .filter-by--content {
+                max-height: 100dvh;
+                transition: .5s ease-in-out;
+                padding: 1rem 0;
+            }
+        }
+    }
+
+    @media ($below-tablet) {
+
+        .filter-by--content {
+            max-height: 0;
+            overflow: hidden;
+            transition: .5s ease-in-out;
+        }
+
+        .toggle-filter-by {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+   
+    
 
     .wp-block-categories-list {
         list-style: none;
         display: flex;
-        gap: var(--wp--custom--layout--gap);
+        flex-wrap: wrap;
+        gap: 1rem;
         margin: 0;
         padding: 0;
 
@@ -68,3 +107,31 @@
     }
 }
 
+.navigation.post-navigation {
+
+    margin-top: var(--wp--preset--spacing--40);
+    margin-bottom: var(--wp--preset--spacing--40);
+    border-top: 1px solid var(--wp--preset--color--neutral-30);
+    padding-top: var(--wp--preset--spacing--40);
+    padding-bottom: var(--wp--preset--spacing--40);
+    border-bottom: 1px solid var(--wp--preset--color--neutral-30);
+
+    .nav-links {
+        display: flex;
+        justify-content: space-between;
+        gap: var(--wp--custom--layout--gap);
+        margin-top: var(--wp--preset--spacing--40);
+
+        @media ($below-tablet) {
+            flex-direction: column;
+        }
+
+        .nav-next {
+            text-align: right;
+
+            @media ($below-tablet) {
+                text-align: left;
+            }
+        }
+    }
+}

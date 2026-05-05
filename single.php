@@ -28,15 +28,19 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'template-parts/content', get_post_type() );
+			get_template_part( 'template-parts/content', get_post_type() ); ?>
 
-			the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Anterior:', 'zoilo-rios' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Siguiente:', 'zoilo-rios' ) . '</span> <span class="nav-title">%title</span>',
-				)
-			);
+			<div class="has-global-padding is-layout-constrained">
+				<?php the_post_navigation(
+					array(
+						'prev_text' => '<div class="nav-subtitle">' . esc_html__( 'Anterior:', 'zoilo-rios' ) . '</div> <div class="nav-title">%title</div>',
+						'next_text' => '<div class="nav-subtitle">' . esc_html__( 'Siguiente:', 'zoilo-rios' ) . '</div> <div class="nav-title">%title</div>',
+					)
+				); ?>
+			</div>
 
+		<?php
+		
 		endwhile; // End of the loop.
 
 			get_template_part( 'template-parts/related', 'post' );

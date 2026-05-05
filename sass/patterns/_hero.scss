@@ -3,6 +3,14 @@
 #hero {
     &.wp-block-cover {
         height: 60rem;
+
+        .home & {
+        
+            @media ($below-mobile) {
+                align-items: flex-end;
+                justify-content: center;
+            }
+        }
     }
 
     .blog &, .archive &, .search & {
