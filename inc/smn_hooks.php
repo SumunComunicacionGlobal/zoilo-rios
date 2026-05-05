@@ -43,3 +43,32 @@ add_filter('rank_math/frontend/breadcrumb/items', function ($crumbs) {
 
     return $crumbs;
 });
+
+/**
+ * Complianz: Show the banner when a html element with class 'cmplz-show-banner' is clicked
+ */
+function cmplz_show_banner_on_click() {
+	?>
+	<style>
+        .cmplz-show-banner {
+            cursor: pointer;
+        }
+	</style>
+	<script>
+        function addEvent(event, selector, callback, context) {
+            document.addEventListener(event, e => {
+                if ( e.target.closest(selector) ) {
+                    callback(e);
+                }
+            });
+        }
+        addEvent('click', '.cmplz-show-banner', function(e){
+            e.preventDefault();
+            document.querySelectorAll('.cmplz-manage-consent').forEach(obj => {
+                obj.click();
+            });
+        });
+	</script>
+	<?php
+}
+add_action( 'wp_footer', 'cmplz_show_banner_on_click' );
