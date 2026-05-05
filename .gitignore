@@ -4,3 +4,4 @@ tmp
 .npm-debug.log
 .sass-cache
 .package-lock.json
+.DS_Store
