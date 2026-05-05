@@ -332,6 +332,16 @@
     display: flex;
     gap: var(--wp--custom--layout--gap);
 
+    @media ($below-tablet) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media ($below-mobile) {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
     .estacion-service-section {
         flex: 1;
     }
@@ -348,6 +358,11 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
+
+            @media ($below-tablet) {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+            }
             
             li {
                 display: flex;

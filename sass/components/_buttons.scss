@@ -39,6 +39,15 @@
 		transition: transform 0.3s ease;
 	}
 
+	// Rota la flecha 45 grados cuando el enlace apunta a un ancla
+	&[href^="#"]:after {
+		transform: rotate(90deg);
+	}
+
+	&[href^="#"]:hover:after {
+		transform: rotate(90deg) translateY(-0.5rem);
+	}
+
 
 }
 

@@ -34,5 +34,16 @@
             }
         }
     }
+
+    .petrolera-hero-estacion {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .petrolera-icon svg{
+            width: 3rem;
+            height: 3rem;
+        }
+    }
 }
 

@@ -70,6 +70,10 @@ a.stretched-link, .stretched-link > a {
     position: relative;
 }
 
+.d-z-index-99 {
+    z-index: 99 !important;
+}
+
 .uppercase {
     text-transform: uppercase;
 }
