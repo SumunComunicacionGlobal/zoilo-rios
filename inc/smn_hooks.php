@@ -28,6 +28,7 @@ add_filter('rank_math/frontend/breadcrumb/items', function ($crumbs) {
     // Obtener los IDs de las páginas desde las opciones de ACF
     $home_particulares_id = get_field('home_particulares', 'option');
     $home_empresa_id = get_field('home_empresa', 'option');
+    $home_proyectos_id = get_field('home_proyectos', 'option');
 
     // Verificar si estamos en un singular de 'particulares' o 'empresa'
     if (is_singular('particulares') && $home_particulares_id) {
@@ -38,6 +39,10 @@ add_filter('rank_math/frontend/breadcrumb/items', function ($crumbs) {
     } elseif (is_singular('empresa') && $home_empresa_id) {
         $url = get_permalink($home_empresa_id);
         $title = get_the_title($home_empresa_id);
+        array_splice($crumbs, 1, 0, [[ $title, $url ]]);
+    } elseif ( is_singular('proyecto') ) {
+        $url = get_permalink($home_proyectos_id);
+        $title = get_the_title($home_proyectos_id);
         array_splice($crumbs, 1, 0, [[ $title, $url ]]);
     }
 
