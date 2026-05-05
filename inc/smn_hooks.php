@@ -77,3 +77,33 @@ function cmplz_show_banner_on_click() {
 	<?php
 }
 add_action( 'wp_footer', 'cmplz_show_banner_on_click' );
+
+
+add_filter( 'the_content', 'smn_remove_undesired_code_from_content' );
+function smn_remove_undesired_code_from_content( $content ) {
+
+if ( !is_singular('post') ) {
+        return $content; // Solo modificar el contenido en posts individuales
+    }
+    // elimina estilos en línea (style="...") que puedan haber sido añadidos por plugins o el editor
+    // a tener en cuenta que el estilo puede contener comillas simples para definir tipografías
+    $content = preg_replace('/style=(["\'])(.*?)\1/', '', $content);
+
+    // Quitar cursivas <em>
+    $content = preg_replace('/<em>(.*?)<\/em>/', '$1', $content);
+
+    // Quitar ' class="xxx"' de los párrafos cuando xxx es igual a:
+    // xmsonormal
+    // MsoNormal
+    // v1msonormal
+    $content = preg_replace('/ class="(xmsonormal|MsoNormal|v1msonormal)"/', '', $content);
+
+    // Quitar párrafos vacíos
+    $content = preg_replace('/<p>\s*<\/p>/', '', $content);
+
+    // Quitar párrafos que solo contengan espacios
+    $content = preg_replace('/<p>\s+<\/p>/', '', $content);
+
+    return $content;
+
+}
