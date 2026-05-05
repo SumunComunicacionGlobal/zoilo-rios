@@ -14,62 +14,48 @@ function mostrar_estaciones_shortcode() {
 add_shortcode( 'estaciones_servicio', 'mostrar_estaciones_shortcode' );
 
 /**
- * Shortcode para mostrar campos ACF de tipo casillas de verificación
+ * Shortcode para mostrar el campo ACF petrolera con su icono
  * 
  * Parámetros:
- * - field: Nombre del campo ACF (requerido)
- * - class: Clase CSS para la lista (opcional)
- * - type: Tipo de lista 'ul' o 'ol' (opcional, por defecto 'ul')
- * - separator: Separador si no quieres lista (opcional)
+ * - class: Clase CSS para el contenedor (opcional)
  * 
  * Uso: 
- * [acf_checkboxes field="campo-checkbox-multiple"]
- * [acf_checkboxes field="servicios" class="servicios-lista" type="ol"]
- * [acf_checkboxes field="servicios" separator=", "]
+ * [petrolera]
+ * [petrolera class="petrolera-card"]
  */
-function acf_checkboxes_shortcode($atts) {
+function petrolera_shortcode($atts) {
     // Parámetros por defecto
     $atts = shortcode_atts(array(
-        'field' => '',
-        'class' => '',
-        'type' => 'ul',
-        'separator' => '',
-        'empty_message' => ''
+        'class' => ''
     ), $atts);
 
-    // Verificar que se especificó un campo
-    if (empty($atts['field'])) {
-        return '<p><em>Error: No se especificó el campo ACF</em></p>';
+    // Obtener el valor y objeto del campo ACF petrolera
+    $petrolera_value = get_field('eess_petrolera');
+    $field_object = get_field_object('eess_petrolera');
+    
+    // Si no hay valor, retornar vacío
+    if (!$petrolera_value || !$field_object) {
+        return '';
     }
 
-    // Obtener el valor del campo ACF
-    $checkboxes = get_field($atts['field']);
-    
-    // Si no hay valores o no es un array, retornar mensaje vacío o nada
-    if (!$checkboxes || !is_array($checkboxes)) {
-        return !empty($atts['empty_message']) ? '<p>' . esc_html($atts['empty_message']) . '</p>' : '';
-    }
+    // Obtener la etiqueta del valor seleccionado
+    $petrolera_label = isset($field_object['choices'][$petrolera_value]) ? 
+                      $field_object['choices'][$petrolera_value] : $petrolera_value;
 
     // Construir el output
-    $output = '';
     $class_attr = !empty($atts['class']) ? ' class="' . esc_attr($atts['class']) . '"' : '';
+    $output = '<div' . $class_attr . '>';
 
-    // Si se especifica separator, mostrar como texto separado
-    if (!empty($atts['separator'])) {
-        $values = array_map('esc_html', $checkboxes);
-        $output = implode($atts['separator'], $values);
-    } else {
-        // Mostrar como lista
-        $list_type = in_array($atts['type'], ['ul', 'ol']) ? $atts['type'] : 'ul';
-        $output = '<' . $list_type . $class_attr . '>';
-        
-        foreach ($checkboxes as $checkbox) {
-            $output .= '<li>' . esc_html($checkbox) . '</li>';
-        }
-        
-        $output .= '</' . $list_type . '>';
+    // Mostrar icono
+    $icon_path = get_template_directory() . '/assets/icons/' . $petrolera_value . '.svg';
+    if (file_exists($icon_path)) {
+        $output .= file_get_contents($icon_path);
     }
+
+    // Mostrar etiqueta
+    $output .= '<span>' . esc_html($petrolera_label) . '</span>';
+    $output .= '</div>';
 
     return $output;
 }
-add_shortcode('acf_checkboxes', 'acf_checkboxes_shortcode');
+add_shortcode('petrolera', 'petrolera_shortcode');
