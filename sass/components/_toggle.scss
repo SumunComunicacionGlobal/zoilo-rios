@@ -1,3 +1,5 @@
+@use '../abstracts/mixins' as *;
+
 .toggle {
     display: flex;
     position: relative;
@@ -54,9 +56,15 @@
     position: sticky;
     z-index: 10;
 
+     @media ($below-tablet) {
+        display: grid;
+        justify-content: center;
+    }
+
     .btn-filtros {
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 0.5rem;
         padding: 0.75rem 1.5rem;
         background-color: var(--wp--preset--color--primary);

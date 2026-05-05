@@ -1,8 +1,18 @@
+@use '../abstracts/mixins' as *;
+
 #estacionesContent {
     &.is-style-group-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 2rem;
+
+        @media ($below-tablet) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+    &.is-style-group-horizontal-scroll {
+        margin-top: var(--wp--custom--layout--gap);
     }
     
 }
