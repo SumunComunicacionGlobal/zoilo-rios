@@ -20,6 +20,11 @@
             padding: var(--wp--custom--layout--gap);
         }
     }
+
+    .wp-block-media-text__media {
+        border-radius: var(--wp--preset--border-radius--1);
+        overflow: hidden;
+    }
 }
 
 .wp-block-image img[style*="object-fit: cover"] {
