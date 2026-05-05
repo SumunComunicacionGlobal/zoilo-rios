@@ -48,7 +48,9 @@ function petrolera_shortcode($atts) {
 
     // Debug extenso para diagnosticar problema de producción
     $template_dir = get_template_directory();
-    $icon_path = $template_dir . '/assets/icons/' . esc_attr($petrolera_value) . '.svg';
+    // FIX: Convertir a minúsculas para que funcione en servidores case-sensitive
+    $icon_filename = strtolower($petrolera_value) . '.svg';
+    $icon_path = $template_dir . '/assets/icons/' . $icon_filename;
     $file_exists = file_exists($icon_path);
     $is_readable = is_readable($icon_path);
     
@@ -56,6 +58,7 @@ function petrolera_shortcode($atts) {
     $output .= '<!-- Valor ACF: ' . esc_html($petrolera_value) . ' -->';
     $output .= '<!-- Label: ' . esc_html($petrolera_label) . ' -->';
     $output .= '<!-- Template dir: ' . esc_html($template_dir) . ' -->';
+    $output .= '<!-- Icon filename: ' . esc_html($icon_filename) . ' -->';
     $output .= '<!-- Icon path: ' . esc_html($icon_path) . ' -->';
     $output .= '<!-- File exists: ' . ($file_exists ? 'YES' : 'NO') . ' -->';
     $output .= '<!-- Is readable: ' . ($is_readable ? 'YES' : 'NO') . ' -->';
