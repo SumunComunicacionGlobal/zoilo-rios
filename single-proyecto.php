@@ -16,7 +16,13 @@ get_header();
 ?>
 	<main id="primary" class="site-main">
 		
-		<?php get_template_part( 'template-parts/hero-mini' ); ?>
+		<?php 
+	 		$block = get_page_by_title( 'Hero Proyecto', OBJECT, 'wp_block' );
+                if ( $block ) {
+                    $block_content = apply_filters( 'the_content', $block->post_content );
+                    echo $block_content;
+                }
+		?>
         
 		<div class="breadcrumbs has-global-padding">
             <?php if (function_exists("rank_math_the_breadcrumbs")) rank_math_the_breadcrumbs(); ?>
