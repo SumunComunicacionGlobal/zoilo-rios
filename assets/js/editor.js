@@ -19,11 +19,6 @@ wp.domReady( () => {
 			label: 'Flecha con separador',
 		},
 		{
-			name: 'arrow-mini-separator-list',
-			label: 'Flecha mini con separador',
-		},
-
-		{
 			name: 'check-separator-list',
 			label: 'Check con separador',
 		},
