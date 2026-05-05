@@ -1,5 +1,5 @@
 <!-- Mapa de la estación -->
-<div class="wp-block-group mt-3 mb-3 alignfull is-layout-flow wp-block-group-is-layout-flow" style="border-radius:0px;padding-right:var(--wp--preset--spacing--10);padding-left:var(--wp--preset--spacing--10)">
+<div id="ubicacion" class="wp-block-group mt-3 mb-3 alignfull is-layout-flow wp-block-group-is-layout-flow" style="border-radius:0px;padding-right:var(--wp--preset--spacing--10);padding-left:var(--wp--preset--spacing--10)">
     <div class="wp-block-group full-width has-neutral-white-background-color has-background has-global-padding is-layout-constrained wp-container-core-group-is-layout-306daf7c wp-block-group-is-layout-constrained" style="border-radius:32px;padding-top:0;padding-right:var(--wp--preset--spacing--10);padding-bottom:0;padding-left:var(--wp--preset--spacing--10)">
         <div class="wp-block-group is-style-margin-vertical is-layout-flow wp-block-group-is-layout-flow">
             <h2 class="has-foreground-medium-color has-heading-3-font-size">Ubicación de <?php echo esc_html( get_the_title() ); ?></h2>
