@@ -1,8 +1,8 @@
 <?php
 /**
- * The template for displaying particular CTP pages
+ * The template for displaying proyecto CTP pages
  *
- * This is the template that displays particular CTP pages by default.
+ * This is the template that displays proyecto CTP pages by default.
  * Please note that this is the WordPress construct of pages
  * and that other 'pages' on your WordPress site may use a
  * different template.
@@ -16,7 +16,7 @@ get_header();
 ?>
 	<main id="primary" class="site-main">
 		
-		<?php get_template_part( 'template-parts/hero-page' ); ?>
+		<?php get_template_part( 'template-parts/hero-mini' ); ?>
         
 		<div class="breadcrumbs has-global-padding">
             <?php if (function_exists("rank_math_the_breadcrumbs")) rank_math_the_breadcrumbs(); ?>
