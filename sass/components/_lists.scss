@@ -5,7 +5,8 @@ ol.has-background, ul.has-background {
 ul.is-style-separator-list,
 ul.is-style-arrow-separator-list,
 ul.is-style-arrow-mini-separator-list,
-ul.is-style-check-separator-list {
+ul.is-style-check-separator-list,
+ul.destacado { /* Clase CSS que viene heredada del blog de Drupal */
 	
     padding: 0;
     list-style: none;
@@ -32,7 +33,8 @@ ul.is-style-arrow-list,
 ul.is-style-check-list,
 ul.is-style-arrow-separator-list,
 ul.is-style-arrow-mini-separator-list,
-ul.is-style-check-separator-list {
+ul.is-style-check-separator-list,
+ul.destacado {
 	list-style: none;
 	position: relative;
 	padding: 0;
@@ -63,7 +65,8 @@ ul.is-style-check-separator-list {
 	}
 }
 
-ul.is-style-arrow-separator-list {
+ul.is-style-arrow-separator-list,
+ul.destacado {
     li {
         padding: var(--wp--preset--spacing--10) 0 var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
         &::before {
@@ -72,14 +75,15 @@ ul.is-style-arrow-separator-list {
     }
 }
 
-ul.is-style-arrow-mini-separator-list {
+ul.is-style-arrow-mini-separator-list,
+ul.destacado {
 
 	li:not(:first-child) {
 		padding: var(--wp--preset--spacing--10) 0 var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
 	}
 
 	li:before{
-		content: url("assets/icons/arrow-right-mini.svg");
+		content: url("assets/icons/arrow-list.svg");
 		top: auto;
 		left: 0;
 	}

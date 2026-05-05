@@ -96,7 +96,7 @@ if ( !is_singular('post') ) {
     // xmsonormal
     // MsoNormal
     // v1msonormal
-    $content = preg_replace('/ class="(xmsonormal|MsoNormal|v1msonormal|paragraph)"/', '', $content);
+    $content = preg_replace('/ class="(xmsonormal|MsoNormal|v1msonormal|paragraph|MsoListParagraphCxSpMiddle|MsoListParagraphCxSpLast)"/', '', $content);
 
     $content = str_replace( '&nbsp;', ' ', $content );
 
