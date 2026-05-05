@@ -100,8 +100,27 @@
     }
 }
 
+.wp-block-columns.loop-proyectos-home {
 
+    .wp-block-column {
+        &:nth-child(3n+1) {
 
+        }
+
+        &:nth-child(3n+2) {
+            @media ($above-tablet) {
+                margin-top: var(--wp--custom--layout--gap);
+            }
+        }
+ 
+        &:nth-child(3n) {
+            @media ($above-tablet) {
+                margin-top: calc( 2 * var(--wp--custom--layout--gap) );
+            }
+        }
+    }
+
+}
 
 .is-style-is-related-posts .taxonomy-category.has-heading-4-font-size > a {
     color: initial;
