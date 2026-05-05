@@ -52,6 +52,9 @@ require get_template_directory() . '/inc/smn_register-blocks.php';
 // Shortcodes
 require get_template_directory() . '/inc/smn_shortcodes.php';
 
+// Hooks
+require get_template_directory() . '/inc/smn_hooks.php';
+
 /**
  * Implement the Custom Header feature.
  */
