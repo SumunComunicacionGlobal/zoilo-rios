@@ -5,9 +5,9 @@
         <?php esc_html_e( 'Ver filtro', 'zoilo-rios' ); ?>
     </button>
 
-    <div class="active-filters">
+    <!--<div class="active-filters">
         <div class="tag">Filtro activo</div>
-    </div>
+    </div>-->
 
     <div class="toggle-views" id="toggle-views-estaciones">
         <div class="toggle-btn--slider"></div>
