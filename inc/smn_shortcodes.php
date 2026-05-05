@@ -46,11 +46,47 @@ function petrolera_shortcode($atts) {
     $class_attr = !empty($atts['class']) ? ' class="' . esc_attr($atts['class']) . '"' : '';
     $output = '<div' . $class_attr . '>';
 
+    // Debug extenso para diagnosticar problema de producción
+    $template_dir = get_template_directory();
+    $icon_path = $template_dir . '/assets/icons/' . esc_attr($petrolera_value) . '.svg';
+    $file_exists = file_exists($icon_path);
+    $is_readable = is_readable($icon_path);
+    
+    $output .= '<!-- DEBUG START -->';
+    $output .= '<!-- Valor ACF: ' . esc_html($petrolera_value) . ' -->';
+    $output .= '<!-- Label: ' . esc_html($petrolera_label) . ' -->';
+    $output .= '<!-- Template dir: ' . esc_html($template_dir) . ' -->';
+    $output .= '<!-- Icon path: ' . esc_html($icon_path) . ' -->';
+    $output .= '<!-- File exists: ' . ($file_exists ? 'YES' : 'NO') . ' -->';
+    $output .= '<!-- Is readable: ' . ($is_readable ? 'YES' : 'NO') . ' -->';
+    
     // Mostrar icono
-    $icon_path = get_template_directory() . '/assets/icons/' . $petrolera_value . '.svg';
-    if (file_exists($icon_path)) {
-        $output .= '<div class="petrolera-icon">' . file_get_contents($icon_path) . '</div>';
+    if ($file_exists && $is_readable) {
+        $icon_content = file_get_contents($icon_path);
+        if ($icon_content !== false && !empty($icon_content)) {
+            $output .= '<!-- Icon loaded: ' . strlen($icon_content) . ' chars -->';
+            $output .= '<div class="petrolera-icon">' . $icon_content . '</div>';
+        } else {
+            $output .= '<!-- Icon file empty or read failed -->';
+        }
+    } else {
+        $output .= '<!-- Icon file not found or not readable -->';
+        
+        // Verificar si la carpeta icons existe
+        $icons_dir = $template_dir . '/assets/icons/';
+        $icons_dir_exists = is_dir($icons_dir);
+        $output .= '<!-- Icons dir exists: ' . ($icons_dir_exists ? 'YES' : 'NO') . ' -->';
+        
+        if ($icons_dir_exists) {
+            $files_in_dir = scandir($icons_dir);
+            $svg_files = array_filter($files_in_dir, function($file) {
+                return pathinfo($file, PATHINFO_EXTENSION) === 'svg';
+            });
+            $output .= '<!-- SVG files found: ' . implode(', ', array_slice($svg_files, 0, 10)) . ' -->';
+        }
     }
+    
+    $output .= '<!-- DEBUG END -->';
 
     // Mostrar etiqueta
     $output .= '<strong class="has-big-font-size">' . esc_html($petrolera_label) . '</strong>';
