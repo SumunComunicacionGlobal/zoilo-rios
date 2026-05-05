@@ -73,3 +73,64 @@ function acf_checkboxes_shortcode($atts) {
     return $output;
 }
 add_shortcode('acf_checkboxes', 'acf_checkboxes_shortcode');
+
+/**
+ * Shortcode para mostrar botones dinámicos desde un campo repeater ACF
+ *
+ * Uso: [hero_dynamic_buttons field="nombre_del_repeater"]
+ * Cada fila debe tener los subcampos: page (ID), text (opcional), link (opcional), color (opcional: primary, secondary, neutral-white)
+ */
+function hero_dynamic_buttons_shortcode($atts) {
+    $atts = shortcode_atts([
+        'field' => 'hero_buttons',
+    ], $atts);
+
+    if (empty($atts['field'])) {
+        return '<p><em>Error: No se especificó el campo repeater ACF</em></p>';
+    }
+
+    $rows = get_field($atts['field']);
+    if (!$rows || !is_array($rows)) {
+        return '';
+    }
+
+    $output = '<div class="wp-block-buttons is-layout-flex hero-dynamic-buttons">';
+
+    foreach ($rows as $row) {
+        // Obtener valores de subcampos
+        $page_id = isset($row['page']) ? $row['page'] : '';
+        $text = isset($row['text']) && $row['text'] ? $row['text'] : '';
+        $link = isset($row['link']) && $row['link'] ? $row['link'] : '';
+        $color = isset($row['color']) && $row['color'] ? $row['color'] : 'primary';
+
+        // Determinar título y enlace
+        $title = '';
+        $permalink = '';
+        if ($page_id) {
+            $title = get_the_title($page_id);
+            $permalink = get_permalink($page_id);
+        }
+        if ($text) {
+            $title = $text;
+        }
+        if ($link) {
+            $permalink = $link;
+        }
+        if (!$title || !$permalink) {
+            continue; // Saltar si falta info esencial
+        }
+
+        // Mapear color a clase de Gutenberg
+        $color_class = 'has-' . $color . '-background-color';
+        if ($color === 'neutral-white') {
+            $color_class .= ' has-text-color has-foreground-color';
+        }
+
+        $output .= '<div class="wp-block-button"><a class="wp-block-button__link ' . esc_attr($color_class) . '" href="' . esc_url($permalink) . '">' . esc_html($title) . '</a></div>';
+    }
+
+    $output .= '</div>';
+    return $output;
+}
+add_shortcode('hero_dynamic_buttons', 'hero_dynamic_buttons_shortcode');
+

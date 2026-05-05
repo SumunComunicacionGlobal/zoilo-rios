@@ -125,3 +125,7 @@
 		cursor: pointer;
 	}
 }
+
+.wp-block-buttons.is-layout-flex.hero-dynamic-buttons {
+	gap: var(--wp--custom--layout--gap-small);
+}
