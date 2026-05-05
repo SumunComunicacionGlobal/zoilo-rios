@@ -96,13 +96,17 @@ if ( !is_singular('post') ) {
     // xmsonormal
     // MsoNormal
     // v1msonormal
-    $content = preg_replace('/ class="(xmsonormal|MsoNormal|v1msonormal)"/', '', $content);
+    $content = preg_replace('/ class="(xmsonormal|MsoNormal|v1msonormal|paragraph)"/', '', $content);
+
+    $content = str_replace( '&nbsp;', ' ', $content );
 
     // Quitar párrafos vacíos
     $content = preg_replace('/<p>\s*<\/p>/', '', $content);
 
     // Quitar párrafos que solo contengan espacios
     $content = preg_replace('/<p>\s+<\/p>/', '', $content);
+
+    
 
     return $content;
 
