@@ -13,14 +13,8 @@
                 ];
             ?>
     
-            <div class="estacion-services-grid---">
-                <div class="mb-1">Estación de Servicio:
-                    <?php
-                        the_field( 'eess_petrolera' );
-                    ?>
-                </div>
-                
-
+            <div class="mb-2 mt-0">
+                <h2 class="has-foreground-medium-color has-heading-3-font-size">Servicios de: <?php echo esc_html( get_the_title() ); ?></h2>
             </div>	
             <div class="estacion-services-grid">
                 <?php foreach ($acf_fields as $field_name => $field_title) : 
