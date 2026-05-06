@@ -33,7 +33,7 @@
 					<?php the_custom_logo(); ?>
 				</div><!-- .site-branding -->
 				<div class="site-branding-symbol">
-					<?php echo file_get_contents(get_template_directory() . '/assets/icons/symbol-zoilo.svg'); ?>
+					<a href="<?php echo home_url('/'); ?>" class="custom-logo-link" rel="home" aria-current="page"><?php echo file_get_contents(get_template_directory() . '/assets/icons/symbol-zoilo.svg'); ?></a>
 				</div><!-- .site-branding -->
 				
 				<!-- Toggle Nav para header - navegación directa por URLs -->
