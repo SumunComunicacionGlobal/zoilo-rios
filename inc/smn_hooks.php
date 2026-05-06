@@ -111,3 +111,36 @@ if ( !is_singular('post') ) {
     return $content;
 
 }
+
+// Establece la cookie "audience" a "empresas" si la página es un CPT "empresa"
+add_action('template_redirect', function() {
+
+    $home_empresa_id = get_field('home_empresa', 'option');
+    $home_particulares_id = get_field('home_particulares', 'option');
+    
+    if ( is_singular('empresa') || is_page( $home_empresa_id ) ) {
+        smn_set_audience_cookie('empresas');
+    } elseif ( is_singular('particulares') || is_page( $home_particulares_id) ) {
+        smn_set_audience_cookie('particulares');
+    }
+
+});
+
+function smn_set_audience_cookie($audience) {
+    setcookie('audience', $audience, time() + 30 * DAY_IN_SECONDS, COOKIEPATH, COOKIE_DOMAIN, is_ssl(), true);
+    $_COOKIE['audience'] = $audience; // Reflejar el valor en $_COOKIE para acceso inmediato
+}
+
+// Cambia el enlace del logo personalizado si la cookie audience es 'empresas'
+add_filter('get_custom_logo', function($html) {
+    if (isset($_COOKIE['audience']) && $_COOKIE['audience'] === 'empresas') {
+        $home_empresa_id = get_field('home_empresa', 'option');
+        if ($home_empresa_id) {
+            $empresa_url = get_permalink($home_empresa_id);
+            // Reemplazar el href del logo por la home de empresa
+            $html = preg_replace('/href=["\\\'].*?["\\\']/', 'href="' . esc_url($empresa_url) . '"', $html);
+        }
+    }
+    return $html;
+});
+

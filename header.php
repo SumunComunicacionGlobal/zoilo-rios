@@ -36,21 +36,8 @@
 					<a href="<?php echo home_url('/'); ?>" class="custom-logo-link" rel="home" aria-current="page"><?php echo file_get_contents(get_template_directory() . '/assets/icons/symbol-zoilo.svg'); ?></a>
 				</div><!-- .site-branding -->
 				
-				<!-- Toggle Nav para header - navegación directa por URLs -->
-				<div class="header-toggle-nav">
-					<div class="toggle" id="toggle-header">
-						<div class="toggle-btn--slider"></div>
-						<a href="<?php echo home_url('/'); ?>" 
-						   class="toggle-btn toggle-btn-particulares <?php echo (!is_post_type_archive('empresa') && get_post_type() !== 'empresa') ? 'active' : 'inactive'; ?>">
-							<?php esc_html_e( 'Particulares', 'zoilo-rios' ); ?>
-						</a>
-						<a href="<?php echo home_url('/empresas'); ?>" 
-						   class="toggle-btn toggle-btn-empresas <?php echo (is_post_type_archive('empresa') || get_post_type() === 'empresa') ? 'active' : 'inactive'; ?>">
-							<?php esc_html_e( 'Empresas', 'zoilo-rios' ); ?>
-						</a>
-					</div>
-				</div>
-				
+				<?php get_template_part( 'template-parts/toggle-nav' ); ?>
+
 				<?php
 					wp_nav_menu(
 						array(
@@ -72,7 +59,7 @@
 				</button>
 				<?php
 					// Condicional para mostrar el menú correcto según el contexto
-					if ( get_post_type() === 'empresa' || is_post_type_archive( 'empresa' ) || (is_page() && get_page_template_slug() === 'page-empresa.php') ) {
+					if ( isset($_COOKIE['audience']) && $_COOKIE['audience'] === 'empresas' ) {
 						// Mostrar menú de empresas
 						wp_nav_menu(
 							array(

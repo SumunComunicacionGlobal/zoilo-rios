@@ -34,7 +34,8 @@
            <!-- <div class="wp-block-group">
                 <?php
                 // Condicional: si estamos en CPT empresas, usar 'eess_profesionales', sino usar 'eess_particulares'
-                if (get_post_type() === 'empresa' || is_post_type_archive('empresa') || (is_page() && get_page_template_slug() === 'page-empresa.php')) {
+                // if (get_post_type() === 'empresa' || is_post_type_archive('empresa') || (is_page() && get_page_template_slug() === 'page-empresa.php')) {
+                if ( isset($_COOKIE['audience']) && $_COOKIE['audience'] === 'empresas' ) {
                     $field_name = 'eess_profesionales';
                 } else {
                     $field_name = 'eess_particulares';

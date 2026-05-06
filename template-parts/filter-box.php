@@ -100,7 +100,9 @@
 
     <?php
         // Condicional para mostrar el menú correcto según el contexto
-        if ( get_post_type() === 'empresa' || is_post_type_archive( 'empresa' ) || (is_page() && get_page_template_slug() === 'page-empresa.php') ) { ?>
+        // if ( get_post_type() === 'empresa' || is_post_type_archive( 'empresa' ) || (is_page() && get_page_template_slug() === 'page-empresa.php') ) { 
+        if ( isset($_COOKIE['audience']) && $_COOKIE['audience'] === 'empresas' ) {
+        ?>
 
         <div class="menu-group">
             <div class="menu-group--title"><?php esc_html_e( 'Para profesionales', 'zoilo-rios' ); ?></div>

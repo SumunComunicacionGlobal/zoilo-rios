@@ -86,11 +86,6 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/class-smn-walker-nav-menu-icon.php';
 require get_template_directory() . '/inc/class-smn-walker-mega-menu-groups.php';
 
-/**
- * Ajax Toggle for nav menus.
- */
-require get_template_directory() . '/inc/ajax-toggle-nav.php';
-
 
 
 /**

@@ -24,7 +24,7 @@ class SMN_Walker_Mega_Menu_Groups extends Walker_Nav_Menu {
         // 1. Agregar toggle para los mega menús (particulares y empresas)
         if ( $is_mega_menu ) {
             ob_start();
-            get_template_part( 'template-parts/toogle-nav', null, array('context' => 'megamenu') );
+            get_template_part( 'template-parts/toggle-nav', null, array('context' => 'megamenu') );
             $toggle_html = ob_get_clean();
             $output .= '<div class="menu-toggle-container">' . $toggle_html . '</div>';
         }
