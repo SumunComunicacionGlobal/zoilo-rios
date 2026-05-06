@@ -52,8 +52,10 @@
 .card-eess {
     border-radius: var(--wp--custom--border-radius--1-5);
     padding: 0.5rem;
+    background-color: var(--wp--preset--color--secondary-100);
 
     .wp-block-cover__inner-container {
+        z-index: 1;
         
         .wp-block-group.is-vertical {
             gap: 0.5rem
@@ -98,6 +100,21 @@
             }
         }
     } 
+
+    .wp-block-cover__image-background {
+        height: 60%;
+        object-position: top center;
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: calc(60% - 2rem);
+        left: 0;
+        width: 100%;
+        height: 2rem;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, var(--wp--preset--color--secondary-100) 100%);
+    }
     
 }
 
