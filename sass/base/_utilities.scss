@@ -95,10 +95,10 @@ body {
             order: 2;
         }
 
-        .hide-empresa,
-        .hide-empresas {
+        .hide-particulares {
             display: none;
         }
+        
     }
 
     &.audience-empresas {
@@ -108,7 +108,8 @@ body {
             order: 2;
         }
 
-        .hide-particulares {
+        .hide-empresa,
+        .hide-empresas {
             display: none;
         }
 
