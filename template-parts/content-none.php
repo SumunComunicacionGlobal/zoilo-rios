@@ -34,14 +34,14 @@
 		elseif ( is_search() ) :
 			?>
 
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'zoilo-rios' ); ?></p>
+			<p><?php esc_html_e( 'Lo sentimos, pero no hay nada que coincida con tu búsqueda. Por favor, inténtalo de nuevo con otras palabras.', 'zoilo-rios' ); ?></p>
 			<?php
 			get_search_form();
 
 		else :
 			?>
 
-			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'zoilo-rios' ); ?></p>
+			<p><?php esc_html_e( 'Parece que no podemos encontrar la página solicitada. Tal vez pueda ayudar usar el cuadro de búsqueda.', 'zoilo-rios' ); ?></p>
 			<?php
 			get_search_form();
 

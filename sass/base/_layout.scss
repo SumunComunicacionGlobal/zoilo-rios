@@ -30,3 +30,21 @@ body .is-layout-flow {
 .has-white-blur-background-color {
     backdrop-filter: blur(8px);
 }
+
+body {
+    &.search-results,
+    &.error404 {
+
+        #primary {
+            padding-top: 120px;
+            padding-bottom: var(--wp--custom--layout--gap);
+        }
+
+        .page-header,
+        .page-title {
+            margin-block-start: 0;
+        }
+
+    }
+
+}

@@ -10,26 +10,30 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
-		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php
-			smn_hybrid_posted_on();
-			smn_hybrid_posted_by();
-			?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
+	<div class="card">
 
-	<?php smn_hybrid_post_thumbnail(); ?>
+		<header class="entry-header">
+			<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
+			<?php if ( 'post' === get_post_type() ) : ?>
+			<div class="entry-meta">
+				<?php
+				smn_hybrid_posted_on();
+				smn_hybrid_posted_by();
+				?>
+			</div><!-- .entry-meta -->
+			<?php endif; ?>
+		</header><!-- .entry-header -->
 
-	<footer class="entry-footer">
-		<?php smn_hybrid_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+		<div class="entry-summary">
+			<?php the_excerpt(); ?>
+		</div><!-- .entry-summary -->
+
+		<footer class="entry-footer">
+			<?php smn_hybrid_entry_footer(); ?>
+		</footer><!-- .entry-footer -->
+
+	</div><!-- .card -->
+	
 </article><!-- #post-<?php the_ID(); ?> -->

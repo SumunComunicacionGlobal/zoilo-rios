@@ -1,5 +1,19 @@
 @use '../abstracts/mixins' as *;
 
+.card {
+    border: 1px solid var(--wp--preset--color--neutral-60);
+    border-radius: var(--wp--custom--border-radius--1-5);
+    padding: var(--gap, 2rem);
+
+    .entry-title {
+        margin-block-start: 0;
+        margin-bottom: 0;
+        font-size: var(--wp--preset--font-size--heading-3);
+    }
+
+
+}
+
 .card-arrow, .--card-eess {
     position: relative;
     transition: background-color 2s ease-in-out;
