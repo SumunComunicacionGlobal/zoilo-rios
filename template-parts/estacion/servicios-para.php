@@ -19,7 +19,7 @@
                     
                     // Mostrar las etiquetas si hay alguna
                     if ($field_object && $selected_values && is_array($selected_values) && !empty($selected_values)) : ?>
-                    <div class="estacion-service-section">
+                    <div class="estacion-service-section <?php echo esc_attr($field_name); ?>">
                         <p class="has-caption-font-size has-neutral-60-color uppercase"><strong><?php echo esc_html($field_title); ?></strong></p>
                         <ul class="estacion-service-list--for">
                             <?php foreach ($selected_values as $value) : ?>

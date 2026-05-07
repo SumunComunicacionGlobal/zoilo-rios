@@ -85,3 +85,21 @@ a.stretched-link, .stretched-link > a {
 .p-relative {
     position: relative;
 }
+
+body {
+
+    &.audience-particulares {
+
+        .estacion-service-section.eess_profesionales {
+            opacity: 0.5;
+            order: 2;
+        }
+    }
+
+    &.audience-empresas {
+        .estacion-service-section.eess_particulares {
+            opacity: 0.5;
+            order: 2;
+        }
+    }
+}

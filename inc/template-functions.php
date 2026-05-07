@@ -56,6 +56,12 @@ function smn_hybrid_body_classes( $classes ) {
 		$classes[] = 'no-sidebar';
 	}
 
+	if ( isset( $_COOKIE['audience'] ) && $_COOKIE['audience'] === 'empresas' ) {
+		$classes[] = 'audience-empresas';
+	} else {
+		$classes[] = 'audience-particulares';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'smn_hybrid_body_classes' );

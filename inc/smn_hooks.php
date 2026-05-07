@@ -44,7 +44,34 @@ add_filter('rank_math/frontend/breadcrumb/items', function ($crumbs) {
         $url = get_permalink($home_proyectos_id);
         $title = get_the_title($home_proyectos_id);
         array_splice($crumbs, 1, 0, [[ $title, $url ]]);
+    } elseif ( is_singular( 'estacion-de-servicio' ) ) {
+        if ( isset($_COOKIE['audience']) && $_COOKIE['audience'] === 'empresas' ) {
+            $estaciones_page_id = get_field('home_eess_empresas', 'option');
+        } else {
+            $estaciones_page_id = get_field('home_eess_particulares', 'option');
+        }
+        if ( $estaciones_page_id ) {
+            $url = get_permalink($estaciones_page_id);
+            $title = get_the_title($estaciones_page_id);
+            array_splice($crumbs, 1, 0, [[ $title, $url ]]);
+        }
     }
+
+    // Reemplazo múltiple en los títulos de las migas de pan
+    $search  = [
+        'Estaciones de servicio', 
+        'Zoilo Ríos para '
+    ]; // Cambia estos valores
+    $replace = [
+        'EE.SS.', 
+        ''
+    ]; // Cambia estos valores
+    foreach ($crumbs as &$crumb) {
+        if (isset($crumb[0])) {
+            $crumb[0] = str_replace($search, $replace, $crumb[0]);
+        }
+    }
+    unset($crumb);
 
     return $crumbs;
 });

@@ -6,6 +6,10 @@
     z-index: 2;
     display: flex;
     position: relative;
+
+    a:hover {
+        text-decoration: underline;
+    }
     
 }
 
