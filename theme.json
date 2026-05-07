@@ -404,7 +404,7 @@
          {
           "name": "Display",
           "slug": "display",
-          "size": "clamp(3rem, 5vw, 5rem)"
+          "size": "clamp(2.5rem, 5vw, 5rem)"
         },
         {
           "name": "Heading-1",

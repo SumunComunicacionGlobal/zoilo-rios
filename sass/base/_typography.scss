@@ -1,3 +1,5 @@
+@use '../abstracts/mixins' as *;
+
 .wp-block-post-title a {
 	text-decoration: none;
 }
@@ -6,4 +8,3 @@
     line-height: var(--wp--custom--line-height--headings);
     font-family: var(--wp--preset--font-family--font-heading);
 }
-
