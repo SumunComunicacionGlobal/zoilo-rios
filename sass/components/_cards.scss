@@ -272,11 +272,11 @@
         transition: all 0.3s ease-in-out;
     }
 
-    .wp-block-post-featured-image {
-        max-height: 0;
-        transform: translateY(3rem);
-        transition: all 0.3s ease-in-out;
-    }
+    // .wp-block-post-featured-image {
+    //     max-height: 0;
+    //     transform: translateY(3rem);
+    //     transition: all 0.3s ease-in-out;
+    // }
 
     .card-blog--icon svg{
         transition: transform 0.3s ease-in-out;
@@ -290,15 +290,15 @@
             transform: translateY(0);
         }
 
-        .wp-block-post-featured-image {
-            max-height: 10rem;
-            transform: translateY(0);
-        }
+        // .wp-block-post-featured-image {
+        //     max-height: 10rem;
+        //     transform: translateY(0);
+        // }
 
-        .card-blog--content h2, .card-blog--content h3 {
-            font-size: var(--wp--preset--font-size--body) !important;
-            transition: font-size .4s ease-in-out;
-        }
+        // .card-blog--content h2, .card-blog--content h3 {
+        //     font-size: var(--wp--preset--font-size--body) !important;
+        //     transition: font-size .4s ease-in-out;
+        // }
 
         .card-blog--icon svg {
             transform: rotate(-90deg);
