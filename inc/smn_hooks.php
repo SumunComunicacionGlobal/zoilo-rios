@@ -60,10 +60,12 @@ add_filter('rank_math/frontend/breadcrumb/items', function ($crumbs) {
     // Reemplazo múltiple en los títulos de las migas de pan
     $search  = [
         'Estaciones de servicio', 
+        'Estación de servicio',
         'Zoilo Ríos para '
     ]; // Cambia estos valores
     $replace = [
         'EE.SS.', 
+        'E.SS.',
         ''
     ]; // Cambia estos valores
     foreach ($crumbs as &$crumb) {
