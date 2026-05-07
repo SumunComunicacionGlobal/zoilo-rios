@@ -94,12 +94,23 @@ body {
             opacity: 0.5;
             order: 2;
         }
+
+        .hide-empresa,
+        .hide-empresas {
+            display: none;
+        }
     }
 
     &.audience-empresas {
+        
         .estacion-service-section.eess_particulares {
             opacity: 0.5;
             order: 2;
         }
+
+        .hide-particulares {
+            display: none;
+        }
+
     }
 }
