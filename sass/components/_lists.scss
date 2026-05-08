@@ -102,3 +102,13 @@ ul.is-style-check-list {
 		left: 0;
 	}
 }
+
+ul.is-style-paragraph-list {
+	font-size: var(--wp--preset--font-size--small);
+	margin-left: var(--wp--preset--spacing--10);
+
+	li {
+		padding-bottom: 0;
+	}
+	
+}

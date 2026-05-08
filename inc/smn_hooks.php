@@ -23,6 +23,29 @@ add_filter('render_block_data', function ($parsed_block) {
     return $parsed_block;
 });
 
+add_filter( 'render_block', 'smn_convert_paragraph_in_list', 10, 2 );
+function smn_convert_paragraph_in_list( $block_content, $block ) {
+
+    if ( $block['blockName'] !== 'core/paragraph' ) {
+        return $block_content; // Solo modificar el contenido de bloques de párrafo
+    }
+
+    if ( isset($block['attrs']['className']) && strpos($block['attrs']['className'], 'is-style-paragraph-list') !== false ) {
+        // Convertir el párrafo en una lista. Encuentra los saltos de línea forzados y convierte cada línea en un elemento de la lista.
+        // Añade la clase .wp-block-list.is-style-arrow-mini
+        // Remove paragraph tags, including classes and inline styles, if present
+        $block_content = preg_replace('/<p[^>]*>(.*?)<\/p>/i', '$1', $block_content);
+
+        $lines = preg_split('/<br\s*\/?>/i', $block_content);
+        $list_items = array_map(function($line) {
+            return '<li>' . trim($line) . '</li>';
+        }, $lines);
+        $block_content = '<ul class="wp-block-list is-style-arrow-list is-style-paragraph-list">' . implode('', $list_items) . '</ul>';
+    }
+
+    return $block_content;
+}
+
 add_filter('rank_math/frontend/breadcrumb/items', function ($crumbs) {
 
     // Obtener los IDs de las páginas desde las opciones de ACF

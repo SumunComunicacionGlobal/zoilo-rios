@@ -9,6 +9,11 @@
  * @package zoilo-rios
  */
 
+$home_url = get_home_url();
+if ( isset($_COOKIE['audience']) && $_COOKIE['audience'] === 'empresas' ) {
+	$home_url = get_permalink(get_field('home_empresa', 'option'));
+}
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -33,7 +38,7 @@
 					<?php the_custom_logo(); ?>
 				</div><!-- .site-branding -->
 				<div class="site-branding-symbol">
-					<a href="<?php echo home_url('/'); ?>" class="custom-logo-link" rel="home" aria-current="page"><?php echo file_get_contents(get_template_directory() . '/assets/icons/symbol-zoilo.svg'); ?></a>
+					<a href="<?php echo $home_url; ?>" class="custom-logo-link" rel="home" aria-current="page"><?php echo file_get_contents(get_template_directory() . '/assets/icons/symbol-zoilo.svg'); ?></a>
 				</div><!-- .site-branding -->
 				
 				<?php get_template_part( 'template-parts/toggle-nav' ); ?>
