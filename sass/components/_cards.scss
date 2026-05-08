@@ -292,8 +292,12 @@
     //     transition: all 0.3s ease-in-out;
     // }
 
-    .card-blog--icon svg{
-        transition: transform 0.3s ease-in-out;
+    .card-blog--icon {
+        
+        svg, 
+        img {
+            transition: transform 0.3s ease-in-out;
+        }
     }
 
     &:hover {
@@ -314,8 +318,12 @@
         //     transition: font-size .4s ease-in-out;
         // }
 
-        .card-blog--icon svg {
-            transform: rotate(-90deg);
+        .card-blog--icon {
+            
+            svg,
+            img {
+                transform: rotate(-90deg);
+            }
         }
     }
 }
