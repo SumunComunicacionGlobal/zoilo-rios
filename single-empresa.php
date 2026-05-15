@@ -22,6 +22,8 @@ get_header();
             <?php if (function_exists("rank_math_the_breadcrumbs")) rank_math_the_breadcrumbs(); ?>
         </div>
 		
+		<?php get_template_part( 'template-parts/gallery' ); ?>
+
 		<?php
 		while ( have_posts() ) :
 			the_post();
