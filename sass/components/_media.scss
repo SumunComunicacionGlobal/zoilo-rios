@@ -1,3 +1,5 @@
+@use '../abstracts/mixins' as *;
+
 .wp-block-image {
     &.size-full {
         img {
@@ -15,4 +17,44 @@
 body.single-post #primary > article > .entry-content img {
 	max-width: 100%;
 	height: auto;
+}
+
+.page-gallery {
+    display: block !important;
+    max-width: 300px;
+    overflow: hidden;
+
+    .wp-block-image {
+        width: 80px !important;
+        display: inline-block !important;
+
+        img {
+            border-radius: 999px;
+            border: 2px solid var(--wp--preset--color--background);
+        }
+
+        &:not(:first-child) {
+            margin-left: -30px !important;
+        }
+    }
+
+    // hide from child 6 onwards
+    .wp-block-image:nth-child(n+6) {
+        display: none !important;
+    }
+
+    @media ($below-mobile) {
+        .wp-block-image{
+            &:not(:first-child) {
+                margin-left: -40px !important;
+            }
+            &:nth-child(n+4) {
+                display: none !important;
+            }
+        }
+    }
+}
+
+.gallery-button {
+    font-weight: 600;
 }

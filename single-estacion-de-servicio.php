@@ -24,6 +24,8 @@ get_header();
 
 		<?php
             get_template_part( 'template-parts/estacion/nav-bar' ); 
+
+            get_template_part( 'template-parts/gallery' );
             
             while ( have_posts() ) :
                 the_post();
