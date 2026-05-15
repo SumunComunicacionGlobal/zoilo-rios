@@ -12,7 +12,10 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<div class="entry-content wp-block-post-content has-global-padding is-layout-constrained wp-block-post-content-is-layout-constrained">
+		
 		<?php
+		get_template_part( 'template-parts/gallery' );
+
 		the_content();
 
 		wp_link_pages(
