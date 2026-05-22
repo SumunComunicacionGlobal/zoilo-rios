@@ -168,27 +168,27 @@
                 
                 // Posiciones específicas en grid desktop
                 @media ($above-tablet) {
-                    &:nth-child(2) { // EESS (1er grupo)
+                    &:nth-child(3) { // EESS (1er grupo)
                         grid-row: 1 / span 3;
                         grid-column: 3 / span 2;
                     }
                     
-                    &:nth-child(3) { // Vehículos (2do grupo) 
+                    &:nth-child(4) { // Vehículos (2do grupo) 
                         grid-row: 1 / span 3;
                         grid-column: 5 / span 2;
                     }
                     
-                    &:nth-child(4) { // Movilidad (3er grupo)
+                    &:nth-child(5) { // Movilidad (3er grupo)
                         grid-row: 4 / span 2;
                         grid-column: 3 / span 2;
                     }
                     
-                    &:nth-child(5) { // Energía (4to grupo)
+                    &:nth-child(6) { // Energía (4to grupo)
                         grid-row: 4 / span 3;
                         grid-column: 5 / span 2;
                     }
                     
-                    &:nth-child(6) { // Zoilo (5to grupo)
+                    &:nth-child(2) { // Zoilo (5to grupo)
                         grid-row: 2 / span 2;
                         grid-column: 1 / span 2;
                     }
