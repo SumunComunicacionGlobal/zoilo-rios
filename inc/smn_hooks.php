@@ -196,7 +196,7 @@ add_filter('get_custom_logo', function($html) {
     return $html;
 });
 
-add_filter( 'the_content', 'smn_append_child_pages_after_content', 20 );
+// add_filter( 'the_content', 'smn_append_child_pages_after_content', 20 );
 function smn_append_child_pages_after_content( $content ) {
 
     if ( ! is_singular() || is_admin() || ! in_the_loop() || ! is_main_query() ) {
