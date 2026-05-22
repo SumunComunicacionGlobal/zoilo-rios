@@ -48,3 +48,14 @@ body {
     }
 
 }
+
+.smn-child-pages-wrapper {
+    margin-top: var(--wp--custom--layout--gap);
+    padding-top: var(--wp--custom--layout--gap);
+    margin-block-end: var(--wp--custom--layout--gap) !important;
+    border-top: 1px solid var(--wp--preset--color--neutral-60);
+
+    .smn-child-pages-title {
+        margin-block-start: 0;
+    }
+}
