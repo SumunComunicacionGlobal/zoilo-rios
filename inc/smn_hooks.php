@@ -221,8 +221,9 @@ function smn_append_child_pages_after_content( $content ) {
     if ( empty( $children ) ) {
         return $content;
     }
-
-    $output = '<ul class="smn-child-pages">';
+    $output = '';
+    $output .= '<h2 class="smn-child-pages-title">' . esc_html__( '¿Quieres saber más?', 'zoilo' ) . '</h2>';
+    $output .= '<ul class="smn-child-pages">';
     foreach ( $children as $child ) {
         $output .= sprintf(
             '<li><a href="%s">%s</a></li>',
