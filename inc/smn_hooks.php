@@ -196,3 +196,42 @@ add_filter('get_custom_logo', function($html) {
     return $html;
 });
 
+add_filter( 'the_content', 'smn_append_child_pages_after_content', 20 );
+function smn_append_child_pages_after_content( $content ) {
+    if ( ! is_singular() || is_admin() || ! in_the_loop() || ! is_main_query() ) {
+        return $content;
+    }
+
+    if ( strpos( home_url(), 'sumun.dev' ) === false ) {
+        return $content;
+    }
+
+    $post_id = get_the_ID();
+    if ( ! $post_id ) {
+        return $content;
+    }
+
+    $children = get_pages( [
+        'parent'      => $post_id,
+        'sort_column' => 'menu_order,post_title',
+        'sort_order'  => 'ASC',
+        'post_status' => 'publish',
+    ] );
+
+    if ( empty( $children ) ) {
+        return $content;
+    }
+
+    $output = '<ul class="smn-child-pages">';
+    foreach ( $children as $child ) {
+        $output .= sprintf(
+            '<li><a href="%s">%s</a></li>',
+            esc_url( get_permalink( $child->ID ) ),
+            esc_html( get_the_title( $child->ID ) )
+        );
+    }
+    $output .= '</ul>';
+
+    return $content . $output;
+}
+
