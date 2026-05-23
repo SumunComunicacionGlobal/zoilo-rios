@@ -94,6 +94,7 @@
         transition: left 0.5s ease-in-out, top 0.5s ease-in-out;
 
         .menu-main-menu-container > ul .menu-toggle-container {
+            margin-bottom: 2rem;
             opacity: 1;
             transform: translateY(0);
             transition-delay: 0.4s;
@@ -218,10 +219,10 @@
                 text-transform: uppercase;
                 font-weight: 700;
                 padding: 2rem 0 0.5rem 0;
-                margin-top: 2rem;
                 color: var(--wp--preset--color--neutral-60);
-                border-top: 1px solid var(--wp--preset--color--neutral-30);
+                border-top: 1px solid var(--wp--preset--color--neutral-30);                
             }
+
 
             // Ocultar títulos de grupo específicos en móvil (Vehículos, Movilidad, Energía)
             .menu-group:nth-child(3) .menu-group-title,
