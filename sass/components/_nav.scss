@@ -133,14 +133,16 @@
         padding: 1rem;
 
         > ul {
+            display: flex;
+            flex-direction: column;
             margin: 0;
             padding: 0;
             width: 100%;
             list-style: none;
-            display: grid;
             gap: 0.25rem;
 
             @media ($above-tablet) {
+                display: grid;
                 column-gap: 32px;
                 flex: 1 0 0;
                 align-self: stretch;
@@ -165,6 +167,10 @@
                 transform: translateY(-10px);
                 transition: opacity 0.3s ease-out, transform 0.3s ease-out;
                 flex-direction: column;
+
+                &:nth-child(2) {
+                    order: 1;
+                }
                 
                 // Posiciones específicas en grid desktop
                 @media ($above-tablet) {
@@ -196,6 +202,7 @@
             }
 
             .menu-widget-container {
+                order: 99; // Asegura que el widget siempre esté al final
                 opacity: 0;
                 transform: translateY(-10px);
                 transition: opacity 0.3s ease-out, transform 0.3s ease-out;
@@ -219,7 +226,8 @@
             // Ocultar títulos de grupo específicos en móvil (Vehículos, Movilidad, Energía)
             .menu-group:nth-child(3) .menu-group-title,
             .menu-group:nth-child(4) .menu-group-title,
-            .menu-group:nth-child(5) .menu-group-title {
+            .menu-group:nth-child(5) .menu-group-title,
+            .menu-group:nth-child(6) .menu-group-title {
                 @media ($below-tablet) {
                     display: none;
                 }
