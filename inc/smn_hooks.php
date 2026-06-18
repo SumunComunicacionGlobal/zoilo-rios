@@ -63,7 +63,7 @@ add_filter('rank_math/frontend/breadcrumb/items', function ($crumbs) {
         $url = get_permalink($home_empresa_id);
         $title = get_the_title($home_empresa_id);
         array_splice($crumbs, 1, 0, [[ $title, $url ]]);
-    } elseif ( is_singular('proyecto') ) {
+    } elseif ( (is_singular('proyecto') || is_tax('tema')) && $home_proyectos_id ) {
         $url = get_permalink($home_proyectos_id);
         $title = get_the_title($home_proyectos_id);
         array_splice($crumbs, 1, 0, [[ $title, $url ]]);
