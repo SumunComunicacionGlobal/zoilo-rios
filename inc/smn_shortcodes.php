@@ -154,9 +154,16 @@ function temas_shortcode($atts) {
     ?>
     <div class="wp-block-group is-layout-grid temas-shortcode">
         <?php foreach ($terms as $term) : ?>
+            <?php $term_link = get_term_link($term); ?>
             <div class="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
 
-                <p class="has-altone-variable-font-family"><?php echo esc_html($term->name); ?></p>
+                <p class="has-altone-variable-font-family">
+                    <?php if (!is_wp_error($term_link)) : ?>
+                        <a href="<?php echo esc_url($term_link); ?>"><?php echo esc_html($term->name); ?></a>
+                    <?php else : ?>
+                        <?php echo esc_html($term->name); ?>
+                    <?php endif; ?>
+                </p>
                 <p class="has-foreground-medium-color has-text-color has-link-color has-small-font-size"><?php echo esc_html(wp_strip_all_tags(term_description($term))); ?></p>
 
             </div>
