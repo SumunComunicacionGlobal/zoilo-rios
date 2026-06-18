@@ -117,10 +117,12 @@ ul.is-style-paragraph-list {
 	grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr));
 
 	> div {
-		padding-left: var(--wp--preset--spacing--10);
+		padding-top: var(--wp--preset--spacing--20);
+		padding-left: var(--wp--preset--spacing--20);
+		border-top: 1px solid var(--wp--preset--color--neutral-30);
 		background-image: url("assets/icons/arrow-list.svg");
 		background-repeat: no-repeat;
-		background-position: left top;
+		background-position: left top 4px;
 		background-size: 1rem auto;
 
 		> p:first-child {
