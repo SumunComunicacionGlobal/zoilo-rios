@@ -112,3 +112,23 @@ ul.is-style-paragraph-list {
 	}
 	
 }
+
+.temas-shortcode {
+	grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr));
+
+	> div {
+		padding-left: var(--wp--preset--spacing--10);
+		background-image: url("assets/icons/arrow-list.svg");
+		background-repeat: no-repeat;
+		background-position: left top;
+		background-size: 1rem auto;
+
+		> p:first-child {
+			font-weight: 700;
+		}
+
+		> *:not(:first-child) {
+			margin-top: var(--wp--custom--layout--gap-small);
+		}
+	}
+}
