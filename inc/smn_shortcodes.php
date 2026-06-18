@@ -140,7 +140,7 @@ function temas_shortcode($atts) {
     ], $atts);
 
     $terms = get_terms([
-        'taxonomy'   => 'temas',
+        'taxonomy'   => 'tema',
         'hide_empty' => filter_var($atts['hide_empty'], FILTER_VALIDATE_BOOLEAN),
         'orderby'    => sanitize_key($atts['orderby']),
         'order'      => strtoupper(sanitize_text_field($atts['order'])) === 'DESC' ? 'DESC' : 'ASC',
@@ -152,23 +152,13 @@ function temas_shortcode($atts) {
 
     ob_start();
     ?>
-    <div class="wp-block-group is-layout-grid wp-container-core-group-is-layout-e299df1b wp-block-group-is-layout-grid">
+    <div class="wp-block-group is-layout-grid temas-shortcode">
         <?php foreach ($terms as $term) : ?>
-            <div class="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained" style="border-bottom-color:var(--wp--preset--color--neutral-30);border-bottom-width:1px">
-                <div class="wp-block-group full-width is-horizontal is-content-justification-left is-layout-flex wp-container-core-group-is-layout-1137618b wp-block-group-is-layout-flex" style="border-radius:0px">
-                    <div class="wp-block-safe-svg-svg-icon safe-svg-cover" style="text-align: left;">
-                        <div class="safe-svg-inside safe-svg-inline" style="width: 16px; height: 16px; background-color: var(--wp--preset--color--); color: var(--wp--preset--color--); padding-top: ; padding-right: ; padding-bottom: ; padding-left: ; margin-top: ; margin-right: ; margin-bottom: ; margin-left: ;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.33301 8H12.6663" stroke="#E0452B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M8 3.33325L12.6667 7.99992L8 12.6666" stroke="#E0452B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                        </div>
-                    </div>
+            <div class="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
 
-                    <p class="has-text-align-left full-width text-nowrap has-text-color has-altone-variable-font-family wp-block-paragraph" style="color:rgba(45,44,42,1);margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;font-size:16px;font-weight:700;line-height:1.5"><?php echo esc_html($term->name); ?></p>
-                </div>
+                <p class="has-altone-variable-font-family"><?php echo esc_html($term->name); ?></p>
+                <p class="has-foreground-medium-color has-text-color has-link-color has-small-font-size"><?php echo esc_html(wp_strip_all_tags(term_description($term))); ?></p>
 
-                <div class="wp-block-group is-layout-flow wp-container-core-group-is-layout-46d94b7f wp-block-group-is-layout-flow" style="margin-top:0.5rem;margin-bottom:0.5rem;padding-bottom:0.5rem;padding-left:var(--wp--preset--spacing--20)">
-                    <p class="has-text-align-left full-width wp-block-paragraph"></p>
-                    <p class="has-foreground-medium-color has-text-color has-link-color has-small-font-size wp-elements-5f09765242cab17c85d381b34a0e236c wp-block-paragraph"><?php echo esc_html(wp_strip_all_tags(term_description($term))); ?></p>
-                </div>
             </div>
         <?php endforeach; ?>
     </div>
