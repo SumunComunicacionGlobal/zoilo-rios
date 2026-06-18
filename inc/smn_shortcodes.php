@@ -175,3 +175,14 @@ function temas_shortcode($atts) {
 }
 add_shortcode('temas', 'temas_shortcode');
 
+add_shortcode( 'hero_eyebrow', 'hero_eyebrow_shortcode' );
+function hero_eyebrow_shortcode() {
+    $eyebrow = __('Blog', 'zoilo-rios');
+    if ( is_singular('proyecto') || is_tax('tema') ) {
+        $eyebrow = __('Innovación', 'zoilo-rios');
+    } elseif ( is_post_type_archive('estaciones') || is_singular('estaciones') ) {
+        $eyebrow = __('Estaciones de servicio', 'zoilo-rios');
+    }
+
+    return '<span class="hero-eyebrow">' . esc_html($eyebrow) . '</span>';
+}
