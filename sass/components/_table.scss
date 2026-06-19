@@ -1,0 +1,11 @@
+@use '../abstracts/mixins' as *;
+
+.wp-block-table {
+
+    th,
+    td {
+        border-color: var(--wp--preset--color--neutral-30);
+        font-size: var(--wp--preset--font-size--normal);
+        min-width: 3rem;
+    }
+}
