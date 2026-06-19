@@ -23,7 +23,8 @@
     background-image: url("assets/images/fondo-card.png");
     background-size: 60% auto;
     background-repeat: no-repeat;
-    background-position: right bottom;
+    background-position: right top;
+    border-top: .5rem solid var(--wp--preset--color--secondary);
 }
 
 .card-arrow, .--card-eess {
