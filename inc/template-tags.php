@@ -36,7 +36,7 @@ if ( ! function_exists( 'smn_hybrid_posted_by' ) ) :
 	function smn_hybrid_posted_by() {
 		$byline = sprintf(
 			/* translators: %s: post author. */
-			esc_html_x( 'by %s', 'post author', 'zoilo-rios' ),
+			esc_html_x( 'publicado por %s', 'post author', 'zoilo-rios' ),
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
@@ -73,7 +73,7 @@ if ( ! function_exists( 'smn_hybrid_entry_footer' ) ) :
 			$categories_list = get_the_category_list( esc_html__( ', ', 'zoilo-rios' ) );
 			if ( $categories_list ) {
 				/* translators: 1: list of categories. */
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'zoilo-rios' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				printf( '<span class="cat-links">' . esc_html__( 'Publicado en %1$s', 'zoilo-rios' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 
 			/* translators: used between list items, there is a space after the comma */

@@ -59,3 +59,12 @@ body {
         margin-block-start: 0;
     }
 }
+
+.entry-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--wp--custom--layout--gap-small);
+    color: var(--wp--preset--color--foreground-medium);
+    font-size: var(--wp--preset--font-size--small);
+    margin: var(--wp--custom--layout--gap-small) 0;
+}

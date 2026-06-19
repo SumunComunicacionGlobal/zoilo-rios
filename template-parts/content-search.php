@@ -21,6 +21,7 @@
 				<?php
 				smn_hybrid_posted_on();
 				smn_hybrid_posted_by();
+				smn_hybrid_entry_footer();
 				?>
 			</div><!-- .entry-meta -->
 			<?php endif; ?>
@@ -29,10 +30,6 @@
 		<div class="entry-summary">
 			<?php the_excerpt(); ?>
 		</div><!-- .entry-summary -->
-
-		<footer class="entry-footer">
-			<?php smn_hybrid_entry_footer(); ?>
-		</footer><!-- .entry-footer -->
 
 	</div><!-- .card -->
 	
