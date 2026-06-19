@@ -85,6 +85,10 @@ wp.domReady( () => {
 
 	wp.blocks.registerBlockStyle( 'core/group', [
 		{
+			name: 'card',
+			label: 'Card',
+		},
+		{
 			name: 'group-horizontal-scroll',
 			label: 'Horizontal scroll',
 		},

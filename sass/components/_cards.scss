@@ -14,6 +14,13 @@
 
 }
 
+.wp-block-group.is-style-card {
+    background-color: var(--wp--preset--color--neutral-white);
+    border: 1px solid var(--wp--preset--color--neutral-30);
+    border-radius: var(--wp--custom--border-radius--05);
+    padding: var(--wp--preset--spacing--20);
+}
+
 .card-arrow, .--card-eess {
     position: relative;
     transition: background-color 2s ease-in-out;
