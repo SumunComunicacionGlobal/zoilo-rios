@@ -11,6 +11,10 @@ get_header();
 $hero_block_title = 'Hero Archive';
 $loop_block_title = 'Loop - Blog';
 
+if ( is_tax('tema') || is_post_type_archive('proyecto') ) {
+	$loop_block_title = 'Loop páginas';
+}
+
 ?>
 
 	<main id="primary" class="site-main">
