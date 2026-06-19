@@ -19,6 +19,11 @@
     border: 1px solid var(--wp--preset--color--neutral-30);
     border-radius: var(--wp--custom--border-radius--05);
     padding: var(--wp--preset--spacing--20);
+
+    background-image: url("assets/images/fondo-card.png");
+    background-size: 60% auto;
+    background-repeat: no-repeat;
+    background-position: right bottom;
 }
 
 .card-arrow, .--card-eess {
