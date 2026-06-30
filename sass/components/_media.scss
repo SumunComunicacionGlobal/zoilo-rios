@@ -58,3 +58,14 @@ body.single-post #primary > article > .entry-content img {
 .gallery-button {
     font-weight: 600;
 }
+
+.wp-block-gallery {
+
+    &.has-nested-images figure.wp-block-image {
+        flex-grow: 0;
+
+        img {
+            border-radius: .25rem;
+        }
+    }
+}
