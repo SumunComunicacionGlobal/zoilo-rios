@@ -74,4 +74,12 @@
             }
         }
     }
+
+    .wp-block-image img {
+        border-radius: var(--wp--custom--border-radius--1);
+    }
+
+    .wp-block-paragraph {
+        margin-block-start: var(--wp--preset--spacing--10);
+    }
 }
