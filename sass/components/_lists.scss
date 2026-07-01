@@ -113,7 +113,7 @@ ul.is-style-paragraph-list {
 	
 }
 
-.is-style-horizontal-list {
+ul.is-style-horizontal-list {
 	display: flex;
 	flex-wrap: wrap;
 	gap: var(--wp--preset--spacing--20);
