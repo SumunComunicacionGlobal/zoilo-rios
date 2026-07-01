@@ -123,13 +123,11 @@ ul.is-style-horizontal-list {
 	li {
 		flex: 1 1 10rem;
 		font-size: var(--wp--preset--font-size--small);
-		padding-top: 1.25rem;
-		padding-left: .5rem;
+		padding: var(--wp--preset--spacing--10);
+		border: 1px solid var(--wp--preset--color--neutral-60);
 		background-image: url("assets/icons/arrow-list.svg");
 		background-repeat: no-repeat;
-		background-position: left top;
-		background-size: 1rem auto;
-
+		background-position: left var(--wp--preset--spacing--10) top var(--wp--preset--spacing--10);
 	}
 
 }
