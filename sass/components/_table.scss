@@ -10,6 +10,7 @@ table {
         border: 1px solid var(--wp--preset--color--neutral-30);
         font-size: var(--wp--preset--font-size--normal);
         min-width: 3rem;
+        overflow-wrap: anywhere;
         padding: .5rem;
     }
 }

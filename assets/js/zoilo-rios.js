@@ -278,3 +278,71 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Privacy popup modal: open on hover/focus, close with button, overlay click or Escape
+document.addEventListener('DOMContentLoaded', function() {
+    const privacyPopup = document.querySelector('.privacy-popup');
+
+    if (!privacyPopup) {
+        return;
+    }
+
+    const triggers = document.querySelectorAll('.show-privacy-popup');
+
+    if (!triggers.length) {
+        return;
+    }
+
+    let popupWrapper = privacyPopup.closest('.privacy-popup-wrapper');
+
+    if (!popupWrapper && privacyPopup.parentNode) {
+        popupWrapper = document.createElement('div');
+        popupWrapper.className = 'privacy-popup-wrapper';
+        privacyPopup.parentNode.insertBefore(popupWrapper, privacyPopup);
+        popupWrapper.appendChild(privacyPopup);
+    }
+
+    if (!popupWrapper) {
+        return;
+    }
+
+    let closeButton = privacyPopup.querySelector('.privacy-popup__close');
+
+    if (!closeButton) {
+        closeButton = document.createElement('button');
+        closeButton.type = 'button';
+        closeButton.className = 'privacy-popup__close';
+        closeButton.setAttribute('aria-label', 'Cerrar ventana de privacidad');
+        closeButton.textContent = '×';
+        privacyPopup.prepend(closeButton);
+    }
+
+    function openPopup() {
+        popupWrapper.classList.add('is-open');
+        document.body.classList.add('privacy-popup-open');
+    }
+
+    function closePopup() {
+        popupWrapper.classList.remove('is-open');
+        document.body.classList.remove('privacy-popup-open');
+    }
+
+    triggers.forEach((trigger) => {
+        trigger.addEventListener('mouseenter', openPopup);
+        trigger.addEventListener('focus', openPopup);
+    });
+
+    closeButton.addEventListener('click', closePopup);
+
+    popupWrapper.addEventListener('click', function(event) {
+        if (event.target === popupWrapper) {
+            closePopup();
+        }
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closePopup();
+        }
+    });
+});
+
