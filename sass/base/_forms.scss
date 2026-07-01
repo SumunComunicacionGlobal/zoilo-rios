@@ -1,3 +1,19 @@
+@use '../abstracts/mixins' as *;
+
 .wpcf7-acceptance .wpcf7-list-item {
 	margin: 0;
+}
+
+.form-row {
+
+	@media ($above-tablet) {
+		display: flex;
+		flex-wrap: wrap;
+		column-gap: var(--wp--custom--layout--gap);
+		row-gap: 0;
+
+		> * {
+			flex: 1 1 calc(50% - var(--wp--custom--layout--gap) / 2);
+		}
+	}
 }
