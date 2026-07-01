@@ -113,6 +113,22 @@ ul.is-style-paragraph-list {
 	
 }
 
+.is-style-horizontal-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--wp--preset--spacing--20);
+	list-style: none;
+	padding: 0;
+
+	li {
+		padding: 0;
+		margin: 0;
+		flex: 1 1 10rem;
+		font-size: var(--wp--preset--font-size--small);
+	}
+
+}
+
 .temas-shortcode {
 	grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr));
 

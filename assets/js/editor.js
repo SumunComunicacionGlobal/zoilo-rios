@@ -22,10 +22,13 @@ wp.domReady( () => {
 			name: 'check-separator-list',
 			label: 'Check con separador',
 		},
-
 		{
 			name: 'check-list',
 			label: 'Check simple',
+		},
+		{
+			name: 'horizontal-list',
+			label: 'Horizontal',
 		},
 	] );
 	wp.blocks.registerBlockStyle( 'core/button', [
