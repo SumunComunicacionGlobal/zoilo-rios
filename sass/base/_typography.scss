@@ -17,3 +17,8 @@
 .has-small-font-size {
     margin-block-start: 1em;
 }
+
+.wp-block-paragraph.has-background {
+    padding: var(--wp--preset--spacing--10);
+    border-radius: var(--wp--custom--border-radius--1);
+}
