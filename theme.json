@@ -577,10 +577,10 @@
 			},
 			"link": {
 				"color": {
-					"text": "var(--wp--preset--color--secondary)"
+					"text": "var(--wp--custom--color--link)"
 				},
 				"typography": {
-          "textDecoration": "none"
+          "textDecoration": "underline"
         }
 			},
 			"cite": {
