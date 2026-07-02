@@ -332,6 +332,12 @@ document.addEventListener('DOMContentLoaded', function() {
             return null;
         }
 
+        // Evita problemas de stacking context (transform/z-index de ancestros)
+        // montando el modal al nivel de body.
+        if (popupWrapper.parentNode !== document.body) {
+            document.body.appendChild(popupWrapper);
+        }
+
         if (!processedWrappers.has(popupWrapper)) {
             popupWrapper.addEventListener('click', function(event) {
                 if (event.target === popupWrapper) {

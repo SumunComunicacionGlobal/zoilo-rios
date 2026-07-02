@@ -7,7 +7,7 @@
     position: fixed;
     transition: opacity .25s ease;
     visibility: hidden;
-    z-index: 9999;
+    z-index: 200000;
 
     &.is-open {
         opacity: 1;
