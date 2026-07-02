@@ -280,63 +280,119 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Privacy popup modal: open on hover/focus, close with button, overlay click or Escape
 document.addEventListener('DOMContentLoaded', function() {
-    const privacyPopup = document.querySelector('.privacy-popup');
-
-    if (!privacyPopup) {
-        return;
-    }
-
     const triggers = document.querySelectorAll('.show-privacy-popup');
 
     if (!triggers.length) {
         return;
     }
 
-    let popupWrapper = privacyPopup.closest('.privacy-popup-wrapper');
+    const processedWrappers = new WeakSet();
+    const processedCloseButtons = new WeakSet();
+    let activeWrapper = null;
 
-    if (!popupWrapper && privacyPopup.parentNode) {
-        popupWrapper = document.createElement('div');
-        popupWrapper.className = 'privacy-popup-wrapper';
-        privacyPopup.parentNode.insertBefore(popupWrapper, privacyPopup);
-        popupWrapper.appendChild(privacyPopup);
+    function closePopup(wrapper = activeWrapper) {
+        if (!wrapper) {
+            return;
+        }
+
+        wrapper.classList.remove('is-open');
+
+        if (activeWrapper === wrapper) {
+            activeWrapper = null;
+        }
+
+        if (!document.querySelector('.privacy-popup-wrapper.is-open')) {
+            document.body.classList.remove('privacy-popup-open');
+        }
     }
 
-    if (!popupWrapper) {
-        return;
+    function getPopupContext(trigger) {
+        const parentForm = trigger.closest('form');
+
+        if (!parentForm) {
+            return null;
+        }
+
+        const privacyPopup = parentForm.querySelector('.privacy-popup');
+
+        if (!privacyPopup) {
+            return null;
+        }
+
+        let popupWrapper = privacyPopup.closest('.privacy-popup-wrapper');
+
+        if (!popupWrapper && privacyPopup.parentNode) {
+            popupWrapper = document.createElement('div');
+            popupWrapper.className = 'privacy-popup-wrapper';
+            privacyPopup.parentNode.insertBefore(popupWrapper, privacyPopup);
+            popupWrapper.appendChild(privacyPopup);
+        }
+
+        if (!popupWrapper) {
+            return null;
+        }
+
+        if (!processedWrappers.has(popupWrapper)) {
+            popupWrapper.addEventListener('click', function(event) {
+                if (event.target === popupWrapper) {
+                    closePopup(popupWrapper);
+                }
+            });
+
+            processedWrappers.add(popupWrapper);
+        }
+
+        let closeButton = privacyPopup.querySelector('.privacy-popup__close');
+
+        if (!closeButton) {
+            closeButton = document.createElement('button');
+            closeButton.type = 'button';
+            closeButton.className = 'privacy-popup__close';
+            closeButton.setAttribute('aria-label', 'Cerrar ventana de privacidad');
+            closeButton.textContent = '×';
+            privacyPopup.prepend(closeButton);
+        }
+
+        if (!processedCloseButtons.has(closeButton)) {
+            closeButton.addEventListener('click', function() {
+                closePopup(popupWrapper);
+            });
+
+            processedCloseButtons.add(closeButton);
+        }
+
+        return {
+            popupWrapper,
+        };
     }
 
-    let closeButton = privacyPopup.querySelector('.privacy-popup__close');
+    function openPopupForTrigger(trigger) {
+        const popupContext = getPopupContext(trigger);
 
-    if (!closeButton) {
-        closeButton = document.createElement('button');
-        closeButton.type = 'button';
-        closeButton.className = 'privacy-popup__close';
-        closeButton.setAttribute('aria-label', 'Cerrar ventana de privacidad');
-        closeButton.textContent = '×';
-        privacyPopup.prepend(closeButton);
-    }
+        if (!popupContext) {
+            return;
+        }
 
-    function openPopup() {
-        popupWrapper.classList.add('is-open');
+        if (activeWrapper && activeWrapper !== popupContext.popupWrapper) {
+            closePopup(activeWrapper);
+        }
+
+        popupContext.popupWrapper.classList.add('is-open');
+        activeWrapper = popupContext.popupWrapper;
         document.body.classList.add('privacy-popup-open');
     }
 
-    function closePopup() {
-        popupWrapper.classList.remove('is-open');
-        document.body.classList.remove('privacy-popup-open');
-    }
-
     triggers.forEach((trigger) => {
-        trigger.addEventListener('mouseenter', openPopup);
-        trigger.addEventListener('focus', openPopup);
-    });
+        trigger.addEventListener('mouseenter', function() {
+            openPopupForTrigger(trigger);
+        });
 
-    closeButton.addEventListener('click', closePopup);
+        trigger.addEventListener('focus', function() {
+            openPopupForTrigger(trigger);
+        });
 
-    popupWrapper.addEventListener('click', function(event) {
-        if (event.target === popupWrapper) {
-            closePopup();
-        }
+        // Inicializa wrapper y botón para cada formulario con trigger
+        getPopupContext(trigger);
     });
 
     document.addEventListener('keydown', function(event) {

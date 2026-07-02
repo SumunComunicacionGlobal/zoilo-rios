@@ -1,6 +1,8 @@
 @use '../abstracts/mixins' as *;
 
 #colophon {
+    position: relative;
+    z-index: 1;
 
     .box-menu-footer {
 
