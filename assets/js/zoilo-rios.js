@@ -288,6 +288,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const processedWrappers = new WeakSet();
     const processedCloseButtons = new WeakSet();
+    const triggerPopupContexts = new WeakMap();
     let activeWrapper = null;
 
     function closePopup(wrapper = activeWrapper) {
@@ -307,6 +308,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function getPopupContext(trigger) {
+        const cachedContext = triggerPopupContexts.get(trigger);
+
+        if (cachedContext?.popupWrapper && document.body.contains(cachedContext.popupWrapper)) {
+            return cachedContext;
+        }
+
         const parentForm = trigger.closest('form');
 
         if (!parentForm) {
@@ -367,9 +374,13 @@ document.addEventListener('DOMContentLoaded', function() {
             processedCloseButtons.add(closeButton);
         }
 
-        return {
+        const popupContext = {
             popupWrapper,
         };
+
+        triggerPopupContexts.set(trigger, popupContext);
+
+        return popupContext;
     }
 
     function openPopupForTrigger(trigger) {
