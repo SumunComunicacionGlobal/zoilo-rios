@@ -14,8 +14,8 @@
     }
 
     .wp-block-cover__background {
-        -webkit-mask-image: linear-gradient(to right, black 0%, transparent 130%);
-        mask-image: linear-gradient(to right, black 0%, transparent 130%);
+        -webkit-mask-image: linear-gradient(to right, black 0%, transparent 100%);
+        mask-image: linear-gradient(to right, black 0%, transparent 100%);
     }
 
     .blog &, .archive &, .search & {
