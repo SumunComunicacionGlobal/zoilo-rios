@@ -14,6 +14,10 @@
     text-transform: uppercase;
 }
 
+.wp-block-heading.has-caption-font-size {
+    color: var(--wp--preset--color--foreground);
+}
+
 .has-small-font-size {
     margin-block-start: 1em;
 }

@@ -573,7 +573,10 @@
 					"fontFamily": "var(--wp--preset--font-family--font-main)",
 					"lineHeight": "var(--wp--custom--line-height--headings)",
           "fontWeight": "400"
-				}
+				},
+        "color": {
+          "text": "var(--wp--preset--color--neutral-80)"
+        }
 			},
 			"link": {
 				"color": {
