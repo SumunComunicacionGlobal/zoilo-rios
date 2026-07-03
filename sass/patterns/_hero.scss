@@ -13,6 +13,11 @@
         }
     }
 
+    .wp-block-cover__background {
+        -webkit-mask-image: linear-gradient(to right, black 0%, transparent 130%);
+        mask-image: linear-gradient(to right, black 0%, transparent 130%);
+    }
+
     .blog &, .archive &, .search & {
         height: 40rem;
     } 

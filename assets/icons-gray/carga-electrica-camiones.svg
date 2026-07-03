@@ -1,0 +1,9 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.6666 24H53.3333L61.3333 32V45.3333H42.6666V24Z" stroke="#ADADA7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M49.3333 58.6667C53.0152 58.6667 56 55.6819 56 52C56 48.3181 53.0152 45.3334 49.3333 45.3334C45.6514 45.3334 42.6666 48.3181 42.6666 52C42.6666 55.6819 45.6514 58.6667 49.3333 58.6667Z" stroke="#ADADA7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M24 5.33337L13.3334 20H29.3334L18.6667 34.6667" stroke="#ADADA7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M2.66663 45.3334H40" stroke="#ADADA7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M5.33337 48H42.6667" stroke="#ADADA7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M42.6666 18.6666V24" stroke="#ADADA7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M14.6667 58.6667C18.3486 58.6667 21.3333 55.6819 21.3333 52C21.3333 48.3181 18.3486 45.3334 14.6667 45.3334C10.9848 45.3334 8 48.3181 8 52C8 55.6819 10.9848 58.6667 14.6667 58.6667Z" fill="white" stroke="#ADADA7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
