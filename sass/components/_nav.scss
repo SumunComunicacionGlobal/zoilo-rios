@@ -72,6 +72,10 @@
         scroll-margin: 10px;
         scroll-margin: 1em 0.5em 1em 1em;
 
+    .current-menu-item > a {
+        font-weight: 700;
+    }
+
     @media ($above-tablet) {
         height: fit-content;
         overflow-x: visible;
@@ -80,7 +84,7 @@
     @media ($above-tablet) {
         margin: auto 1rem auto;
         left: auto !important;
-        top: -130%;
+        top: -1300px;
         width: calc(100% - 2rem);
 
         &.mega-menu--open {
