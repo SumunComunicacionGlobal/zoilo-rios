@@ -39,6 +39,13 @@ textarea {
 
 }
 
+input[type="file"] {
+	padding: var(--wp--preset--spacing--10);
+	border: 1px solid var(--wp--preset--color--neutral-60);
+	border-radius: var(--wp--custom--border-radius--1);
+	margin-top: .25rem;
+}
+
 select {
 	border-radius: var(--wp--custom--border-radius--rounded);
 	border: 2px solid;
