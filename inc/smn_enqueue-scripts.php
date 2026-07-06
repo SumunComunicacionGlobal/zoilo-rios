@@ -25,7 +25,7 @@
 	) {
 		
 		// Obtener la API key de Google Maps
-		$google_maps_api_key = ACF_GOOGLE_MAP_API_KEY; // Misma key que está en functions.php
+		$google_maps_api_key = my_acf_google_map_api( array() )['key'] ?? '';
 		
 		// Cargar Google Maps API
 		wp_enqueue_script( 
