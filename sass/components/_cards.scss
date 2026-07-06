@@ -170,6 +170,10 @@
     &:hover {
         background-color: var(--wp--preset--color--secondary-100) !important;
         color: var(--wp--preset--color--foreground-inverted);
+
+        a {
+            color: var(--wp--preset--color--foreground-inverted);
+        }
        
         svg {
             transform: rotate(45deg);
