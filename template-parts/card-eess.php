@@ -20,9 +20,10 @@
                 
                 <div class="mb-1">
                     <?php
-                    $petrolera_list = get_the_term_list( get_the_ID(), 'petrolera', '', ', ' );
-                    if ( $petrolera_list && ! is_wp_error( $petrolera_list ) ) {
-                        echo wp_kses_post( $petrolera_list );
+                    $petrolera_terms = get_the_terms( get_the_ID(), 'petrolera' );
+                    if ( $petrolera_terms && ! is_wp_error( $petrolera_terms ) ) {
+                        $petrolera_names = wp_list_pluck( $petrolera_terms, 'name' );
+                        echo esc_html( implode( ', ', $petrolera_names ) );
                     }
                     ?>
                 </div>
