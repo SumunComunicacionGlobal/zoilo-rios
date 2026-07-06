@@ -91,8 +91,10 @@ require get_template_directory() . '/inc/class-smn-walker-mega-menu-groups.php';
 /**
  * Google Map API key for ACF.
  */
+
+define( 'ACF_GOOGLE_MAP_API_KEY', 'AIzaSyD3U_RUr-rQZYtYYb_ZqXqNdGFwd2czX00' );
 function my_acf_google_map_api( $api ){
-    $api['key'] = 'AIzaSyD3U_RUr-rQZYtYYb_ZqXqNdGFwd2czX00';
+    $api['key'] = ACF_GOOGLE_MAP_API_KEY;
     return $api;
 }
 add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');

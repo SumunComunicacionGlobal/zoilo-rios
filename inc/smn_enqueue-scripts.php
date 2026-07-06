@@ -18,12 +18,14 @@
 	wp_enqueue_script( 'estaciones-js', get_template_directory_uri() . '/assets/js/estaciones.js', array('jquery'), _S_VERSION, true );
 	
 	// Cargar Google Maps API para estaciones de servicio
-	if ( is_post_type_archive( 'estacion-de-servicio' ) || 
-		 is_singular( 'estacion-de-servicio' ) || 
-		 has_shortcode( get_post()->post_content ?? '', 'estaciones_servicio' ) ) {
+	if ( 
+		// is_post_type_archive( 'estacion-de-servicio' ) || 
+		is_singular( 'estacion-de-servicio' )
+		// has_shortcode( get_post()->post_content ?? '', 'estaciones_servicio' ) ) 
+	) {
 		
 		// Obtener la API key de Google Maps
-		$google_maps_api_key = 'AIzaSyD3U_RUr-rQZYtYYb_ZqXqNdGFwd2czX00'; // Misma key que está en functions.php
+		$google_maps_api_key = ACF_GOOGLE_MAP_API_KEY; // Misma key que está en functions.php
 		
 		// Cargar Google Maps API
 		wp_enqueue_script( 

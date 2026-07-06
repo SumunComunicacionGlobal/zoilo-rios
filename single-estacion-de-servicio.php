@@ -44,7 +44,5 @@ get_header();
 
 	</main><!-- #main -->
 
-	<?php get_template_part( 'template-parts/filter-box' ); ?>
-
 <?php
 get_footer();
