@@ -18,7 +18,14 @@
         <div class="wp-block-group is-vertical is-content-justification-right is-layout-flex wp-block-group-is-layout-flex" style="min-height:100%">
             <div class="wp-block-group card-eess--content is-layout-flow wp-block-group-is-layout-flow">
                 
-                <div class="mb-1"><?php the_field( 'eess_petrolera' ); ?></div>
+                <div class="mb-1">
+                    <?php
+                    $petrolera_list = get_the_term_list( get_the_ID(), 'petrolera', '', ', ' );
+                    if ( $petrolera_list && ! is_wp_error( $petrolera_list ) ) {
+                        echo wp_kses_post( $petrolera_list );
+                    }
+                    ?>
+                </div>
                 <h2 class="has-heading-6-font-size stretched-link card-eess--title">
                     <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title();?></a>
                 </h2>
