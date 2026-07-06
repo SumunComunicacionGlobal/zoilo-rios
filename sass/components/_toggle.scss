@@ -124,16 +124,19 @@
         }
 
         // Estados activos para 3 opciones
-        &[data-active="list"] .toggle-btn--slider {
+        &[data-active="map"] .toggle-btn--slider {
+            width: calc(33.333% - 0.5rem);
             left: 0.25rem;
         }
 
-        &[data-active="map"] .toggle-btn--slider {
-            left: calc(33.333% + 0.08rem);
+        &[data-active="grid"] .toggle-btn--slider {
+            width: calc(33.333% + 2rem);
+            left: calc(33.333% - .5rem);
         }
 
-        &[data-active="grid"] .toggle-btn--slider {
-            left: calc(66.666% - 0.08rem);
+        &[data-active="list"] .toggle-btn--slider {
+            width: calc(33.333% - 1.2rem);
+            left: calc(66.666% + 1rem);
         }
     }
 }

@@ -71,10 +71,10 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
-        // Inicializar vista por defecto (lista)
-        const defaultButton = toggleViews.querySelector('[data-view="list"]');
+        // Inicializar vista por defecto (mapa)
+        const defaultButton = toggleViews.querySelector('[data-view="map"]');
         if (defaultButton) {
-            defaultButton.classList.add('active');
+            defaultButton.click();
         }
     }
 

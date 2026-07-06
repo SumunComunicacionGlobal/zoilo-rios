@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const buttons = toggleViews.querySelectorAll('.toggle-btn');
   
   // Establecer estado inicial
-  toggleViews.setAttribute('data-active', 'list');
+  toggleViews.setAttribute('data-active', 'map');
 
   buttons.forEach(function(button) {
     button.addEventListener('click', function(e) {

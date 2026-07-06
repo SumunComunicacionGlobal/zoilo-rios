@@ -22,6 +22,10 @@
         </button>
     </div>
 
+    <div class="filter-box--selections">
+        <?php echo facetwp_display( 'selections' ); ?>
+    </div>
+
     <div class="menu-group">
         <div class="menu-group--title"><?php esc_html_e( 'Estaciones de servicio', 'zoilo-rios' ); ?></div>
         <div class="group-petronera"><?php echo facetwp_display( 'facet', 'petrolera' ); ?></div>

@@ -9,19 +9,19 @@
         <div class="tag">Filtro activo</div>
     </div>-->
 
-    <div class="toggle-views" id="toggle-views-estaciones">
+    <div class="toggle-views" id="toggle-views-estaciones" data-active="map">
         <div class="toggle-btn--slider"></div>
-        <div class="toggle-btn" data-view="list">
-            <?php echo file_get_contents(get_template_directory() . '/assets/icons/list.svg'); ?>
-            <?php esc_html_e( 'Lista', 'zoilo-rios' ); ?>
-        </div>
-        <div class="toggle-btn" data-view="map">
+        <div class="toggle-btn active" data-view="map">
             <?php echo file_get_contents(get_template_directory() . '/assets/icons/map.svg'); ?>
             <?php esc_html_e( 'Mapa', 'zoilo-rios' ); ?>
         </div>
         <div class="toggle-btn" data-view="grid">
             <?php echo file_get_contents(get_template_directory() . '/assets/icons/grid.svg'); ?>
-            <?php esc_html_e( 'Grid', 'zoilo-rios' ); ?>
+            <?php esc_html_e( 'Cuadrícula', 'zoilo-rios' ); ?>
+        </div>
+        <div class="toggle-btn" data-view="list">
+            <?php echo file_get_contents(get_template_directory() . '/assets/icons/list.svg'); ?>
+            <?php esc_html_e( 'Lista', 'zoilo-rios' ); ?>
         </div>
     </div>
 </div>
