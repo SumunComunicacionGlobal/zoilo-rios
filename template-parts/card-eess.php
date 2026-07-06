@@ -18,7 +18,7 @@
         <div class="wp-block-group is-vertical is-content-justification-right is-layout-flex wp-block-group-is-layout-flex" style="min-height:100%">
             <div class="wp-block-group card-eess--content is-layout-flow wp-block-group-is-layout-flow">
                 
-                <div class="mb-1">
+                <div class="mb-1 terms-list petrolera-list">
                     <?php
                     $petrolera_terms = get_the_terms( get_the_ID(), 'petrolera' );
                     if ( $petrolera_terms && ! is_wp_error( $petrolera_terms ) ) {
