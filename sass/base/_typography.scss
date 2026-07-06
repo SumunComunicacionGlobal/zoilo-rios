@@ -29,4 +29,11 @@
 
 .terms-list {
     font-size: var(--wp--preset--font-size--small);
+
+    > a,
+    > span {
+        padding: .2em .5em;
+        background-color: var(--wp--preset--color--neutral-10);
+        border-radius: var(--wp--custom--border-radius--05);
+    }
 }

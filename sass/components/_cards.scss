@@ -90,7 +90,7 @@
         }
         
         .card-eess--content {
-        
+            min-height: 170px;
             padding: var(--spacing-1, 1rem);
             gap: var(--spacing-1, 1rem);
             color: var(--wp--preset--color--foreground);

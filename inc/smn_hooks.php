@@ -1,5 +1,9 @@
 <?php
 
+// Enable ACF Data Store for better performance
+add_filter( 'acf/settings/enable_datastore', '__return_true' );
+
+
 // Agrega un filtro para el bloque de consulta de WordPress
 // que muestra los posts relacionados en la página de un post y los filtra por categorías
 add_filter('render_block_data', function ($parsed_block) {
