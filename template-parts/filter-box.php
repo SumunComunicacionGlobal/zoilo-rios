@@ -22,7 +22,7 @@
         </button>
     </div>
 
-    <div class="filter-box--selections">
+    <div class="filter-box--selections active-filters">
         <?php echo facetwp_display( 'selections' ); ?>
         <?php echo facetwp_display( 'facet', 'reset' ); ?>
     </div>
