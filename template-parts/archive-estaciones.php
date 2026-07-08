@@ -5,9 +5,10 @@
         <?php esc_html_e( 'Ver filtro', 'zoilo-rios' ); ?>
     </button>
 
-    <!--<div class="active-filters">
-        <div class="tag">Filtro activo</div>
-    </div>-->
+    <div class="active-filters">
+        <?php echo facetwp_display( 'selections' ); ?>
+        <?php echo facetwp_display( 'facet', 'reset' ); ?>
+    </div>
 
     <div class="toggle-views" id="toggle-views-estaciones" data-active="map">
         <div class="toggle-btn--slider"></div>
