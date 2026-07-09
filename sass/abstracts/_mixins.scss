@@ -26,25 +26,11 @@ $above-desktop: "min-width:1440px";
       .hidden-mobile {
         display: none !important;
       }
-      .square-mobile {
-        aspect-ratio: 1 / 1;
-
-        img {
-          object-fit: cover;
-        }
-      }
     }
   } @else if $device == tablet {
     @media ($above-mobile) and ($below-tablet) {
       .hidden-tablet {
         display: none !important;
-      }
-      .square-tablet {
-        aspect-ratio: 1 / 1;
-
-        img {
-          object-fit: cover;
-        }
       }
     }
   } @else if $device == laptop {
@@ -52,25 +38,11 @@ $above-desktop: "min-width:1440px";
       .hidden-laptop {
         display: none !important;
       }
-      .square-laptop {
-        aspect-ratio: 1 / 1;
-
-        img {
-          object-fit: cover;
-        }
-      }
     }
   } @else if $device == desktop {
       @media ($above-desktop) {
         .hidden-desktop {
           display: none !important;
-        }
-        .square-desktop {
-          aspect-ratio: 1 / 1;
-
-          img {
-            object-fit: cover;
-          }
         }
       }
   } @else {
