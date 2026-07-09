@@ -68,6 +68,13 @@
 		}
 	} );
 
+	// Close menu when pressing Escape.
+	document.addEventListener( 'keydown', function( event ) {
+		if ( event.key === 'Escape' && siteNavigation.classList.contains( 'mega-menu--open' ) ) {
+			closeMenu();
+		}
+	} );
+
 	// Close menu when clicking on overlay
 	overlay.addEventListener( 'click', function() {
 		closeMenu();
