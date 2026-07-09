@@ -60,7 +60,7 @@ textarea {
 
 button[type="submit"], input[type="submit"] {
 	background-color: var(--wp--preset--color--primary);
-	color: inherit;
+	color: var(--wp--preset--color--neutral-white);
 	border: 0;
 	font-weight: bold;
 	border-radius: var(--wp--custom--border-radius--rounded);
