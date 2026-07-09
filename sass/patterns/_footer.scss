@@ -11,3 +11,9 @@
         }
     }
 }
+
+.footer-logo {
+    @media ($below-mobile) {
+        max-width: 200px;
+    }
+}

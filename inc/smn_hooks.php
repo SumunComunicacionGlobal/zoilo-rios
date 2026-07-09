@@ -88,11 +88,13 @@ add_filter('rank_math/frontend/breadcrumb/items', function ($crumbs) {
     $search  = [
         'Estaciones de servicio', 
         'Estación de servicio',
-        'Zoilo Ríos para '
+        'Zoilo Ríos para ',
+        ' para tu '
     ]; // Cambia estos valores
     $replace = [
         'EE.SS.', 
         'E.SS.',
+        '',
         ''
     ]; // Cambia estos valores
     foreach ($crumbs as &$crumb) {
@@ -104,6 +106,22 @@ add_filter('rank_math/frontend/breadcrumb/items', function ($crumbs) {
 
     return $crumbs;
 });
+
+add_filter( 'rank_math/frontend/breadcrumb/items', function( $crumbs, $class ) {
+    $last_index = count( $crumbs ) - 1;
+    $title = $crumbs[$last_index][0]; // Gets the last breadcrumb title
+    $max_word_limit = 10; // Set your maximum word limit here
+
+    // Check if the title exceeds the word limit
+    if ( str_word_count( wp_strip_all_tags( $title ) ) > $max_word_limit ) {
+        // Truncate and add ellipsis
+        $truncated_title = wp_trim_words( $title, $max_word_limit, '...' );
+        $crumbs[$last_index][0] = $truncated_title;
+    }
+
+    return $crumbs;
+}, 10, 2 );
+
 
 /**
  * Complianz: Show the banner when a html element with class 'cmplz-show-banner' is clicked
@@ -137,10 +155,11 @@ add_action( 'wp_footer', 'cmplz_show_banner_on_click' );
 
 add_filter( 'the_content', 'smn_remove_undesired_code_from_content' );
 function smn_remove_undesired_code_from_content( $content ) {
-
-if ( !is_singular('post') ) {
+    // Only clean the main post content, not reusable blocks rendered from templates.
+    if ( ! is_singular( 'post' ) || is_admin() || ! in_the_loop() || ! is_main_query() ) {
         return $content; // Solo modificar el contenido en posts individuales
     }
+
     // elimina estilos en línea (style="...") que puedan haber sido añadidos por plugins o el editor
     // a tener en cuenta que el estilo puede contener comillas simples para definir tipografías
     $content = preg_replace('/style=(["\'])(.*?)\1/', '', $content);
