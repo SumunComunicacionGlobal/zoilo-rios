@@ -1,3 +1,5 @@
+@use '../abstracts/mixins' as *;
+
 /****
 	* Author: Lex From Techies Reviews
 	* Link: https://youtube.com/@techiesreviews
@@ -41,17 +43,7 @@ body.wp-theme-zoilo-rios {
 			--marquee-duration: 500s;
 		}
 	}
-		
-	.infinite-scroll.is-faded{
-		mask-image: linear-gradient(
-						to left, 
-						rgba(0, 0, 0, 0) 0%, 
-						rgb(0, 0, 0) 20%, 
-						rgb(0, 0, 0) 80%, 
-						rgba(0, 0, 0, 0) 100%
-					);
-	}
-		
+				
 	.infinite-scroll.is-reversed {
 		--marquee-direction: reverse;
 	}
@@ -115,14 +107,35 @@ body.wp-theme-zoilo-rios {
 		height: 80dvh; /* altura por defecto */
 	}
 
-	.infinite-scroll.is-vertical.is-faded {
-		mask-image: linear-gradient(
-						to bottom, 
-						rgba(0, 0, 0, 0) 0%, 
-						rgb(0, 0, 0) 20%, 
-						rgb(0, 0, 0) 80%, 
-						rgba(0, 0, 0, 0) 100%
-					);
+	@media ($above-mobile) {
+		.infinite-scroll.is-faded{
+			mask-image: linear-gradient(
+							to left, 
+							rgba(0, 0, 0, 0) 0%, 
+							rgb(0, 0, 0) 20%, 
+							rgb(0, 0, 0) 80%, 
+							rgba(0, 0, 0, 0) 100%
+						);
+		}
+		.infinite-scroll.is-vertical.is-faded {
+			mask-image: linear-gradient(
+							to bottom, 
+							rgba(0, 0, 0, 0) 0%, 
+							rgb(0, 0, 0) 20%, 
+							rgb(0, 0, 0) 80%, 
+							rgba(0, 0, 0, 0) 100%
+						);
+		}
+	}
+
+	@media ($below-mobile) {
+		.infinite-scroll {
+			overflow: visible;
+			--marquee-play-state: paused;
+		}
+		.infinite-scroll>*{
+			animation: none;
+		}
 	}
 
 }
