@@ -58,6 +58,22 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+// Boton back to top
+document.addEventListener('DOMContentLoaded', function() {
+    const backToTopBtn = document.getElementById('back-to-top');
+
+    if (!backToTopBtn) {
+        return;
+    }
+
+    backToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+
 // Añade drag para los elementos con scroll horizontal
 document.addEventListener('DOMContentLoaded', (event) => {
     const sliders = document.querySelectorAll('.is-style-group-horizontal-scroll');

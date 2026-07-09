@@ -68,3 +68,35 @@ body {
     font-size: var(--wp--preset--font-size--small);
     margin: var(--wp--custom--layout--gap-small) 0;
 }
+
+.back-to-top.btn-icon {
+    position: fixed;
+    right: var(--wp--custom--layout--gap);
+    bottom: var(--wp--custom--layout--gap);
+    z-index: 90;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(0.75rem) scale(.96);
+    transition:
+        opacity .28s ease,
+        transform .28s ease,
+        background-color .3s ease;
+
+    svg {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+}
+
+body.scrolled .back-to-top.btn-icon {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+
+@media ($below-mobile) {
+    .back-to-top.btn-icon {
+        right: var(--wp--custom--layout--gap-small);
+        bottom: var(--wp--custom--layout--gap-small);
+    }
+}
