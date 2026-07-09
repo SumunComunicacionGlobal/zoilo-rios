@@ -26,7 +26,8 @@ $above-desktop: "min-width:1440px";
       .hidden-mobile {
         display: none !important;
       }
-      .square-mobile {
+      .square-mobile,
+      .square-mobile img {
         aspect-ratio: 1 / 1 !important;
 
         img {
@@ -39,7 +40,8 @@ $above-desktop: "min-width:1440px";
       .hidden-tablet {
         display: none !important;
       }
-      .square-tablet {
+      .square-tablet,
+      .square-tablet img {
         aspect-ratio: 1 / 1 !important;
 
         img {
@@ -52,7 +54,8 @@ $above-desktop: "min-width:1440px";
       .hidden-laptop {
         display: none !important;
       }
-      .square-laptop {
+      .square-laptop,
+      .square-laptop img {
         aspect-ratio: 1 / 1 !important;
 
         img {
@@ -65,7 +68,8 @@ $above-desktop: "min-width:1440px";
         .hidden-desktop {
           display: none !important;
         }
-        .square-desktop {
+        .square-desktop,
+        .square-desktop img {
           aspect-ratio: 1 / 1 !important;
 
           img {
