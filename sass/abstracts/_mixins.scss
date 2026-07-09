@@ -27,10 +27,10 @@ $above-desktop: "min-width:1440px";
         display: none !important;
       }
       .square-mobile {
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 1 / 1 !important;
 
         img {
-          object-fit: cover;
+          object-fit: cover !important;
         }
       }
     }
@@ -40,10 +40,10 @@ $above-desktop: "min-width:1440px";
         display: none !important;
       }
       .square-tablet {
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 1 / 1 !important;
 
         img {
-          object-fit: cover;
+          object-fit: cover !important;
         }
       }
     }
@@ -53,10 +53,10 @@ $above-desktop: "min-width:1440px";
         display: none !important;
       }
       .square-laptop {
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 1 / 1 !important;
 
         img {
-          object-fit: cover;
+          object-fit: cover !important;
         }
       }
     }
@@ -66,10 +66,10 @@ $above-desktop: "min-width:1440px";
           display: none !important;
         }
         .square-desktop {
-          aspect-ratio: 1 / 1;
+          aspect-ratio: 1 / 1 !important;
 
           img {
-            object-fit: cover;
+            object-fit: cover !important;
           }
         }
       }
