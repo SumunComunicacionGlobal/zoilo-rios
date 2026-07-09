@@ -1,3 +1,5 @@
+@use '../abstracts/mixins' as *;
+
 ol.has-background, ul.has-background {
     padding: 0;
 }
@@ -115,13 +117,12 @@ ul.is-style-paragraph-list {
 
 ul.is-style-horizontal-list {
 	display: flex;
-	flex-wrap: wrap;
-	gap: var(--wp--preset--spacing--20);
+	flex-direction: column;
+	gap: .5rem;
 	list-style: none;
 	padding: 0;
 
 	li {
-		flex: 1 1 10rem;
 		font-size: var(--wp--preset--font-size--small);
 		padding: var(--wp--preset--spacing--40) var(--wp--preset--spacing--10) var(--wp--preset--spacing--10);
 		border: 1px solid var(--wp--preset--color--neutral-60);
@@ -129,6 +130,16 @@ ul.is-style-horizontal-list {
 		background-image: url("assets/icons/arrow-list.svg");
 		background-repeat: no-repeat;
 		background-position: left var(--wp--preset--spacing--10) top var(--wp--preset--spacing--10);
+	}
+
+	@media ($above-mobile) {
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: var(--wp--preset--spacing--20);
+
+		li {
+			flex: 1 1 10rem;
+		}
 	}
 
 }

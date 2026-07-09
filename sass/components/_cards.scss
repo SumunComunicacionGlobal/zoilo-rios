@@ -147,9 +147,13 @@
 }
 
 .card-services {
-    height: 396px;
     position: relative;
+    overflow: hidden;
     transition: background-color .3s ease-in-out;
+
+    @media ($above-mobile) {
+        height: 396px;
+    }
 
     .wp-block-safe-svg-svg-icon {
         transition: transform .3s ease-in-out;

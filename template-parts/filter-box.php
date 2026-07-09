@@ -1,3 +1,10 @@
+<?php
+global $post;
+if ( !has_shortcode( $post->post_content ?? '', 'estaciones_servicio' ) ) {
+    return;
+}
+?>
+
 <div id="filter-box">
 
     <div class="filter-box--header">

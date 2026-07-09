@@ -117,13 +117,17 @@ add_filter('rank_math/frontend/breadcrumb/items', function ($crumbs) {
         'Estaciones de servicio', 
         'Estación de servicio',
         'Zoilo Ríos para ',
-        ' para tu '
+        ' para tu ',
+        'Movilidad para ',
+        'Servicios para '
     ]; // Cambia estos valores
     $replace = [
         'EE.SS.', 
         'E.SS.',
         '',
-        ''
+        '',
+        'Movilidad ',
+        'Servicios '
     ]; // Cambia estos valores
     foreach ($crumbs as &$crumb) {
         if (isset($crumb[0])) {

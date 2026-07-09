@@ -43,3 +43,9 @@
         border-radius: var(--wp--custom--border-radius--05);
     }
 }
+
+@media ($below-tablet) {
+    .has-text-align-right {
+        text-align: left;
+    }
+}
