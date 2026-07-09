@@ -50,6 +50,34 @@ function smn_convert_paragraph_in_list( $block_content, $block ) {
     return $block_content;
 }
 
+add_filter( 'render_block', 'smn_hide_empty_excerpt_block', 10, 2 );
+function smn_hide_empty_excerpt_block( $block_content, $block ) {
+    $block_name = $block['blockName'] ?? '';
+    if ( ! in_array( $block_name, [ 'core/post-excerpt', 'core/excerpt' ], true ) ) {
+        return $block_content;
+    }
+
+    $post_id = 0;
+    if ( isset( $block['attrs']['postId'] ) ) {
+        $post_id = (int) $block['attrs']['postId'];
+    } elseif ( isset( $block['context']['postId'] ) ) {
+        $post_id = (int) $block['context']['postId'];
+    } else {
+        $post_id = get_the_ID();
+    }
+
+    if ( ! $post_id ) {
+        return $block_content;
+    }
+
+    $manual_excerpt = get_post_field( 'post_excerpt', $post_id );
+    if ( trim( (string) $manual_excerpt ) === '' ) {
+        return '';
+    }
+
+    return $block_content;
+}
+
 add_filter('rank_math/frontend/breadcrumb/items', function ($crumbs) {
 
     // Obtener los IDs de las páginas desde las opciones de ACF
