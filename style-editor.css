@@ -1,1 +1,7 @@
-/*! editor styles */.dnone,.d-none{opacity:.5}/*# sourceMappingURL=style-editor.css.map */
+/*! editor styles */
+.dnone,
+.d-none {
+  opacity: 0.5;
+}
+
+/*# sourceMappingURL=style-editor.css.map */
