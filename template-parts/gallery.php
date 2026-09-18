@@ -34,9 +34,9 @@ $images = [];
             foreach ($gallery_ids as $id) {
                 $html .= '<!-- wp:image {"id":' . $id . ',"sizeSlug":"thumbnail","linkDestination":"media","aspectRatio":"1"} -->';
                 $html .= '<figure class="wp-block-image size-thumbnail">';
-                    $html .= '<a href="' . wp_get_attachment_url($id) . '">';
+                    // $html .= '<a href="' . wp_get_attachment_url($id) . '">';
                         $html .= wp_get_attachment_image($id, 'thumbnail', false, ['style' => 'aspect-ratio: 1', 'alt' => get_post_meta($id, '_wp_attachment_image_alt', true)]);
-                    $html .= '</a>';
+                    // $html .= '</a>';
                 $html .= '</figure>';
                 $html .= '<!-- /wp:image -->';
             }
@@ -45,7 +45,8 @@ $images = [];
             $html .= '<!-- /wp:gallery -->';
 
             $html .= '<!-- wp:paragraph {"align":"center","className":"gallery-button"} -->';
-            $html .= '<p class="has-text-align-center gallery-button"><a href="' . wp_get_attachment_url($gallery_ids[0]) . '" class="gallery-block-link">' . $texto_boton . '</a></p>';
+            // $html .= '<p class="has-text-align-center gallery-button"><a href="' . wp_get_attachment_url($gallery_ids[0]) . '" class="gallery-block-link">' . $texto_boton . '</a></p>';
+            $html .= '<p class="has-text-align-center gallery-button"><a href="#galeria-imagenes" class="gallery-block-link">' . $texto_boton . '</a></p>';
             $html .= '<!-- /wp:paragraph -->';
 
         $html .= '</div>';

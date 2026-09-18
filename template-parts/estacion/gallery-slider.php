@@ -14,7 +14,7 @@ if ( ! $image_ids ) {
         <div class="wp-block-group is-style-margin-vertical is-layout-flow wp-block-group-is-layout-flow">
             <h2 class="has-foreground-medium-color has-heading-3-font-size">Instalaciones</h2>
 
-            <div class="wp-block-cb-carousel estacion-installations-slider">
+            <div class="estacion-installations-slider">
                 <?php foreach ( $image_ids as $image_id ) : ?>
                     <div class="estacion-installations-slide">
                         <figure class="wp-block-image">

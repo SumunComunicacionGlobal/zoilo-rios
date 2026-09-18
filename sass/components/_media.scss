@@ -55,8 +55,9 @@ body.single-post #primary > article > .entry-content img {
     }
 }
 
-.estacion-installations-slide {
-
+.estacion-installations {
+    border-radius: var(--wp--preset--border-radius--1);
+    
     .wp-block-image img {
         border-radius: var(--wp--preset--border-radius--1);
     }
