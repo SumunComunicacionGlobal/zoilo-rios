@@ -19,12 +19,12 @@ body.single-post #primary > article > .entry-content img {
 	height: auto;
 }
 
-.page-gallery {
+.wp-block-gallery.has-nested-images.page-gallery {
     display: block !important;
     max-width: 300px;
     overflow: hidden;
 
-    .wp-block-image {
+    figure.wp-block-image {
         width: 80px !important;
         display: inline-block !important;
 
@@ -52,6 +52,13 @@ body.single-post #primary > article > .entry-content img {
                 display: none !important;
             }
         }
+    }
+}
+
+.estacion-installations-slide {
+
+    .wp-block-image img {
+        border-radius: var(--wp--preset--border-radius--1);
     }
 }
 

@@ -24,8 +24,6 @@ get_header();
 
 		<?php
             get_template_part( 'template-parts/estacion/nav-bar' ); 
-
-            get_template_part( 'template-parts/gallery' );
             
             while ( have_posts() ) :
                 the_post();
@@ -36,6 +34,7 @@ get_header();
             
             get_template_part( 'template-parts/estacion/servicios-list' );
             get_template_part( 'template-parts/estacion/map' );
+            get_template_part( 'template-parts/estacion/gallery-slider' );
             get_template_part( 'template-parts/estacion/servicios-para' );
         
         ?>

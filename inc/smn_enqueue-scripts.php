@@ -38,7 +38,7 @@
 		);
 	}
 
-	if ( has_block( 'cb/carousel' ) ) {
+	if ( has_block( 'cb/carousel' ) || is_singular( 'estacion-de-servicio' ) ) {
         wp_enqueue_style( 'slick-css', get_template_directory_uri() . '/assets/slick/slick.min.css' );
         wp_enqueue_script( 'slick-js', get_template_directory_uri() . '/assets/slick/slick.min.js', array('jquery'), null, true );
         wp_enqueue_script( 'slick-init-js', get_template_directory_uri() . '/assets/slick/init.js', array('jquery'), null, true );
